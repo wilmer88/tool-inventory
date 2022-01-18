@@ -7,7 +7,7 @@ var app = express();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3306;
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", engine({ defaultLayout: "main" }));
