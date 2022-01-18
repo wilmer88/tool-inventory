@@ -32,11 +32,22 @@ app.get("/weekend", function (req, res) {
   res.render("index", lunches[1]);
 });
 
-app.get("/", function (req, res) {
+app.get("/lunches", function (req, res) {
   res.render("all-lunches", {
     foods: lunches,
     eater: "david",
   });
+});
+
+app.get("/founTools", function (req, res) {
+  res.render("foundTools");
+});
+app.get("/add", function (req, res) {
+  res.render("addTool");
+});
+
+app.get("/", function (req, res) {
+  res.render("frontPage");
 });
 
 // Start our server so that it can begin listening to client requests.
