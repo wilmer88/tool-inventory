@@ -7,38 +7,13 @@ var app = express();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 3306;
+var PORT = process.env.PORT || 8080;
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Data
-var lunches = [
-  {
-    lunch: "Beet & Goat Cheese Salad with minestrone soup.",
-  },
-  {
-    lunch: "Pizza, two double veggie burgers, fries with a Big Gulp",
-  },
-];
-
 // Routes
-app.get("/weekday", function (req, res) {
-  res.render("index", lunches[0]);
-});
-
-app.get("/weekend", function (req, res) {
-  res.render("index", lunches[1]);
-});
-
-app.get("/lunches", function (req, res) {
-  res.render("all-lunches", {
-    foods: lunches,
-    eater: "david",
-  });
-});
-
 app.get("/founTools", function (req, res) {
   res.render("foundTools");
 });
