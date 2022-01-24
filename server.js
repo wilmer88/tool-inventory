@@ -1,29 +1,22 @@
 // Dependencies
 var express = require("express");
 
-var { engine } = require("express-handlebars");
-// Create an instance of the express app.
-var app = express();
-
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
 
+// Create an instance of the express app.
+var app = express();
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+var { engine } = require("express-handlebars");
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Routes
-app.get("/founTools", function (req, res) {
-  res.render("foundTools");
-});
-app.get("/add", function (req, res) {
-  res.render("addTool");
-});
-
-app.get("/", function (req, res) {
-  res.render("frontPage");
-});
+var routes = require("./controllers/toolController.js");
+app.use(routes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {

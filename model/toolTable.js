@@ -8,7 +8,7 @@ var sequelize = require("../config/connection.js");
 var Tool = sequelize.define(
   "tool",
   {
-      // the routeName gets saved as a string
+    // the routeName gets saved as a string
     routeName: Sequelize.STRING,
     // the name of the tool (a string)
     name: Sequelize.STRING,
@@ -19,7 +19,7 @@ var Tool = sequelize.define(
     // exact location where the tool is stored (a string)
     location: Sequelize.STRING,
   },
-   // disable the modification of tablenames; By default, sequelize will automatically
+  // disable the modification of tablenames; By default, sequelize will automatically
   // transform all passed model names (first parameter of define) into plural.
   // if you don't want that, set the following
   { freezeTable: true }
