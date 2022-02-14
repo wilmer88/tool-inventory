@@ -2,7 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 
-var db = require("../model/toolTable");
+var db = require("../models/toolTable");
 
 // Routes
 router.get("/foundTools", function (req, res) {
@@ -19,14 +19,19 @@ router.get("/", function (req, res) {
 });
 router.get("/api/alltools", function (req, res) {
   db.findAll({}).then(function (alldbTableTools) {
-    res.json(alldbTableTools);
+   console.log(alldbTableTools)
+    res.render("allTools", alldbTableTools);
+    
+ 
   });
+
+
   // res.sendFile(path.join(__dirname, "../public/add.html"));
 });
-router.get("/alltools", function (req, res) {
-  res.render("allTools");
-  // res.sendFile(path.join(__dirname, "../public/add.html"));
-});
+
+
+
+
 module.exports = router;
 
 // Using a RegEx Pattern to remove spaces from character.name

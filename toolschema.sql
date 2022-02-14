@@ -1,4 +1,9 @@
-DROP DATABASE IF EXISTS `tool_inventory`;
-CREATE DATABASE `tool_inventory`;
-USE nmrnlexiy1pqivgu
+drop database if exists nmrnlexiy1pqivgu;
+create database nmrnlexiy1pqivgu;
+USE nmrnlexiy1pqivgu;
 SELECT * FROM tools;
+INSERT INTO tools
+VALUES (UUID(),"torque wranch","torque wranch", "ben", "white 1996 2500", "toolbox",now(),now() );
+INSERT INTO tools
+VALUES (UUID(),"wrench","wrench", "jonathan", "blue ford 2500", "toolbox",now(),now() );
+DELETE FROM tools WHERE "id" = "1";

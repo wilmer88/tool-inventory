@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js" lang="en">
 	<head>
+<script src="/js/vendor/modernizr.js"></script>
 		<title>tool-inventory</title>
 		<meta charset="utf-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,18 +16,22 @@
           <li class="menu-text">Tools</li>
           <li><a href="/">Home</a></li>
           <li><a href="/add">Add A Tool</a></li>
-          <li><a href="/alltools">All Tools</a></li>
+          <li><a href="/api/alltools">All Tools</a></li>
           <li><a href="#">Eddit Tool Info</a></li>
         </ul>
       </div>
     </div>
 		{{{ body }}}
+
 		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
- <script src="js/vendor/jquery.js"></script>
+ 
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
+   
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/fastclick.js"></script>
 	</body>
 </html>
