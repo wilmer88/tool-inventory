@@ -3,9 +3,13 @@ SELECT * FROM tools;
 INSERT INTO tools
 VALUES (1,"skill saw","skill saw", "joe", "gray 2016 dodge", "toolbox",now(),now() );
 INSERT INTO tools
-VALUES (UUID(),"impact drill","skill saw", "jonathan", "blue ford 2500", "toolbox",now(),now() );
+VALUES (now(), UUID(),"impact drill","welding",now() );
 
 
-{
-    id:1
-}
+CREATE TABLE tools (
+ created_at timestamp  NOT NULL,
+id INTEGER NOT NULL,
+tool_name VARCHAR(50),
+department VARCHAR(50),
+updated_at timestamp  NOT NULL
+);

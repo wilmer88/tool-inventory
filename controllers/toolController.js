@@ -1,4 +1,5 @@
 var express = require("express");
+const { json } = require("express/lib/response");
 
 var router = express.Router();
 
@@ -18,10 +19,10 @@ router.get("/", function (req, res) {
   res.render("frontPage");
 });
 router.get("/api/alltools", function (req, res) {
-  db.findAll({}).then(function (alldbTableTools) {
-   console.log(alldbTableTools)
-    res.render("allTools", alldbTableTools);
-    
+  db.findAll({}).then(function (tableTools) {
+// var data = JSON.parse(tableTools)
+    res.render("allTools", {tableTools: tableTools});
+  
  
   });
 

@@ -1,17 +1,20 @@
 // Dependencies
 const express = require("express");
 
-//espress handlebars node package
+//espress handlebars node package. set handlebars
 const exphbs = require("express-handlebars");
 
 // Create an instance of the express app.
 const app = express();
 
+
+app.use(express.static("public"));
+
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
 
 // var { engine } = require("express-handlebars");
-//Set Handlebars as the default templating engine.
+//Set Handlebars as the default templating engine. parse request body as json
 app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -19,7 +22,15 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.use(express.static("public"));
+
+var routes = require("./controllers/toolController.js");
+app.use(routes);
+
+
+app.listen(PORT, function () {
+  // Log (server-side) when our server has started
+  console.log("Server listening on: http://localhost:" + PORT);
+});
 
 // const res = require("express/lib/response");
 
@@ -28,22 +39,15 @@ app.use(express.json());
 
 // Set the port of our application
 
-app.get("/", (req, res) => {
-  res.render("frontPage");
-});
+// app.get("/", (req, res) => {
+//   res.render("frontPage");
+// });
 
-app.get("/api/alltools", (req, res)=>{
-  res.render("allTools")
-})
+// app.get("/api/alltools", (req, res)=>{
+//   res.render("allTools")
+// })
 
 
-app.listen(PORT, function () {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
-});
-
-// var routes = require("./controllers/toolController.js");
-// app.use(routes);
 
 // db.sequelize.sync().then(function () {
 
