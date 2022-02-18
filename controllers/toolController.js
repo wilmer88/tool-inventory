@@ -3,36 +3,50 @@ const { json } = require("express/lib/response");
 
 var router = express.Router();
 
-var db = require("../models/toolTable");
+var tool = require("../models/tool.js");
 
 // Routes
-router.get("/foundTools", function (req, res) {
-  res.render("foundTools");
-});
-router.get("/add", function (req, res) {
-  res.render("addTool");
-});
+router.get("/api/config", (req,res) => {
+  res.json({
+    success: true
+  })
+})
 
-router.get("/", function (req, res) {
-  // res.sendFile(path.join(__dirname, "../public/add.html"));
-
+router.get("/", (req, res) => {
   res.render("frontPage");
 });
-router.get("/api/alltools", function (req, res) {
-  db.findAll({}).then(function (tableTools) {
-// var data = JSON.parse(tableTools)
-    res.render("allTools", {tableTools: tableTools});
-  
- 
-  });
-
-
-  // res.sendFile(path.join(__dirname, "../public/add.html"));
-});
 
 
 
+// router.get("/foundTools", function (req, res) {
+//   res.render("foundTools");
+// });
+// router.get("/add", function (req, res) {
+//   res.render("addTool");
+// });
 
+// router.get("/", function (req, res) {
+//   // res.sendFile(path.join(__dirname, "../public/add.html"));
+
+//   res.render("frontPage");
+// });
+// router.get("/api/alltools", function (req, res) {
+// res.render("allTools")
+
+// });
+
+// router.post("/api/new", (req,res)=>{
+// tool.create( {
+//   id: "456",
+//   partName: "welding hood",
+//   department: "welding",
+//   count: "4",
+//   createdAt: "2021-11-16 21:39:32",
+//   updatedAt: "2021-11-16 21:39:32"
+// }).then((result) => {
+//   res.json(result);
+// }).catch(err=>console.log(err))
+// })
 module.exports = router;
 
 // Using a RegEx Pattern to remove spaces from character.name
