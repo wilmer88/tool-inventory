@@ -1,13 +1,19 @@
 // Dependencies
 const express = require("express");
-// Create an instance of the express app.
-const app = express();
-// process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
-const db = require("./models");
-const routes = require("./controllers/toolController.js");
 //espress handlebars node package. set handlebars
 const exphbs = require("express-handlebars");
+
+// Create an instance of the express app.
+const app = express();
+const db = require("./models");
+const handlebars = require("handlebars");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
+// process.env.PORT lets the port be set by Heroku
+const PORT = process.env.PORT || 8080;
+
+const routes = require("./controllers/toolController.js");
 
 //middle ware for posting
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +26,13 @@ app.use(express.json());
 
 // var { engine } = require("express-handlebars");
 //Set Handlebars as the default templating engine. parse request body as json
-app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  exphbs.engine({
+    defaultLayout: "main",
+    handlebars: allowInsecurePrototypeAccess(handlebars),
+  })
+);
 app.set("view engine", "handlebars");
 
 app.use(routes);

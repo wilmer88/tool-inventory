@@ -1,16 +1,23 @@
-<h1>all your Items</h1>
-{{!-- {{#each allItems}}
-{{allItems.item_name}} - {{allItems.total_count}}
-{{/each}} --}}
+<div class="grid-container full">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-3"></div>
+    <div class="cell small-7"><h1>All Items</h1></div>
+    <div class="cell small-2"></div>
+  </div>
 
-<ul>
+<div class="grid-container full">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-4"></div>
+    <div class="cell small-4"><ul>
     {{#each allItems}}
 <li>
-    {{allItems.item_name}} 
-    <h4>{{allItems.total_count}}</h4>
+    {{name}}-{{count}}
+    
 </li>
     {{/each}}
-</ul> 
+</ul> </div>
+    <div class="cell small-4"></div>
+  </div>
 
 
 

@@ -2,6 +2,7 @@ drop database if exists nmrnlexiy1pqivgu;
 create database nmrnlexiy1pqivgu;
 USE nmrnlexiy1pqivgu;
 SELECT * FROM items;
+SELECT * FROM Users;
 
 INSERT INTO Items
 VALUES (UUID(),"torque wrench","3",now(),now() );
