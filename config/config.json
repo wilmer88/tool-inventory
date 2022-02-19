@@ -4,7 +4,6 @@
     "password": "qql03rsn08z0vvtg",
     "database": "nmrnlexiy1pqivgu",
     "host": "kutnpvrhom7lki7u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
@@ -12,11 +11,10 @@
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "port": 3306,
     "dialect": "mysql"
   },
   "production": {
-  "use_env_variable": "JAWSDB_URL",
-  "dilect": "mysql"
+   "use_env_variable": "JAWSDB_URL",
+   "dilect": "mysql"
   }
 }
