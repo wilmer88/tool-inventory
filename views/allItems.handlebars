@@ -1,0 +1,16 @@
+<h1>all your Items</h1>
+{{!-- {{#each allItems}}
+{{allItems.item_name}} - {{allItems.total_count}}
+{{/each}} --}}
+
+<ul>
+    {{#each allItems}}
+<li>
+    {{allItems.item_name}} 
+    <h4>{{allItems.total_count}}</h4>
+</li>
+    {{/each}}
+</ul> 
+
+
+

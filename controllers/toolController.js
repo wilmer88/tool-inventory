@@ -1,54 +1,52 @@
-var express = require("express");
-const { json } = require("express/lib/response");
-
-var router = express.Router();
-
-var tool = require("../models/tool.js");
-
-// Routes
-router.get("/api/config", (req,res) => {
-  res.json({
-    success: true
-  })
-})
-
-router.get("/", (req, res) => {
-  res.render("frontPage");
+const express = require("express");
+const router = express.Router();
+const db = require("../models");
+router.post("/api/item", (req, res) => {
+  db.Item
+    .create(req.body)
+    .then((newItem) => {
+      res.json({
+        error: false,
+        data: newItem,
+        message: "successfully created new item",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        
+      })
+    });
 });
 
+router.get("/allItems", (req, res) => {
+  db.Item
+    .findAll()
+    .then((allItems) => {
+      console.log(allItems);
+      res.render("allItems", { allItems: allItems });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to retrive items",
+      });
+    });
+});
+router.get("/allItems", function (req, res) {
+  res.render("allItems");
+});
+router.get("/item/add", function (req, res) {
+  res.render("addItems");
+});
+router.get("/item/:id", function (req, res) {
+  res.render("findItem");
+});
+router.get("/item/:id/edit", function (req, res) {
+  res.render("editItem");
+});
+// api routes
 
-
-// router.get("/foundTools", function (req, res) {
-//   res.render("foundTools");
-// });
-// router.get("/add", function (req, res) {
-//   res.render("addTool");
-// });
-
-// router.get("/", function (req, res) {
-//   // res.sendFile(path.join(__dirname, "../public/add.html"));
-
-//   res.render("frontPage");
-// });
-// router.get("/api/alltools", function (req, res) {
-// res.render("allTools")
-
-// });
-
-// router.post("/api/new", (req,res)=>{
-// tool.create( {
-//   id: "456",
-//   partName: "welding hood",
-//   department: "welding",
-//   count: "4",
-//   createdAt: "2021-11-16 21:39:32",
-//   updatedAt: "2021-11-16 21:39:32"
-// }).then((result) => {
-//   res.json(result);
-// }).catch(err=>console.log(err))
-// })
 module.exports = router;
-
-// Using a RegEx Pattern to remove spaces from character.name
-// You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-// var routeName = character.name.replace(/\s+/g, "").toLowerCase();

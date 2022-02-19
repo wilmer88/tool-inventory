@@ -1,9 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
-  const Item = sequelize.define("items", {
-    item_name: {
+  const Item = sequelize.define("Item", {
+    name: {
       type: DataTypes.STRING,
     },
-    total_count: {
+    count: {
       type: DataTypes.STRING,
     },
   });

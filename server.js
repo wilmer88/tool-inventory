@@ -26,8 +26,14 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
+app.get("/", (req, res) => {
+  res.render("frontPage");
+});
+app.get("/api/config", (req, res) => {
+  res.json({
+    success: true,
+  });
+});
 
 
 db.sequelize.sync().then(function () {

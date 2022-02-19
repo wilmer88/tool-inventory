@@ -27,3 +27,7 @@ app.listen(PORT,() => {
 //         success: true
 //     })
 // })
+
+// Using a RegEx Pattern to remove spaces from character.name
+// You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+// var routeName = character.name.replace(/\s+/g, "").toLowerCase();
