@@ -38,7 +38,7 @@ app.set("view engine", "handlebars");
 app.use(routes);
 
 app.get("/", (req, res) => {
-  res.render("frontPage");
+  res.render("index");
 });
 app.get("/api/config", (req, res) => {
   res.json({

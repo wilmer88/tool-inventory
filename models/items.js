@@ -3,6 +3,12 @@ module.exports = function (sequelize, DataTypes) {
       name: {
         type: DataTypes.STRING,
       },
+      placement: {
+        type: DataTypes.STRING,
+      },
+     serial: {
+        type: DataTypes.STRING,
+      },
       count: {
         type: DataTypes.INTEGER,
       },
