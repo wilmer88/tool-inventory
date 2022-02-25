@@ -6,8 +6,7 @@ router.get("/allItem", (req, res) => {
   db.Item.findAll()
     .then((allItems) => {
       // console.log(allItems);
-
-      res.render("allItems", { allItems });
+      res.render("allItems", { allItems: allItems });
     })
     .catch((err) => {
       console.log(err);
@@ -19,16 +18,18 @@ router.get("/allItem", (req, res) => {
     });
 });
 
-router.get("/item/add", function (req, res) {
-  res.render("addItems");
+router.get("/item/new", (req, res) => {
+  res.render("addItem");
 });
-router.get("/view/:id", function (req, res) {
+
+router.get("/item/:id", function (req, res) {
   db.Item.findOne({
     where: {
       id: req.params.id,
     },
   }).then((oneFoundItem) => {
     res.render("foundItem", {
+      id: oneFoundItem.id,
       name: oneFoundItem.name,
       placement: oneFoundItem.placement,
       serial: oneFoundItem.serial,
@@ -36,25 +37,24 @@ router.get("/view/:id", function (req, res) {
     });
   });
 });
-// router.get("/item/:id", function (req, res) {
-// db.Item.
-// });
-router.get("/item/:id/edit", function (req, res) {
+
+router.get("/item/:id/edit", (req, res) => {
   db.Item.findOne({
     where: {
       id: req.params.id,
     },
-  }).then((EditoneFoundItem) => {
-    console.log(EditoneFoundItem);
+  }).then((foundO) => {
+    console.log(foundO);
     res.render("editItem", {
-      name: EditoneFoundItem.name,
-      placement: EditoneFoundItem.placement,
-      serial: EditoneFoundItem.serial,
-      count: EditoneFoundItem.count,
+      id: foundO.id,
+      name: foundO.name,
+      placement: foundO.placement,
+      serial: foundO.serial,
+      count: foundO.count,
     });
   });
 });
-// api routes
+
 router.post("/api/item", (req, res) => {
   db.Item.create(req.body)
     .then((newItem) => {
@@ -66,19 +66,32 @@ router.post("/api/item", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json({});
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to create item",
+      });
     });
 });
 
-router.put("api/item/:id", (req, res) => {
+router.put("/api/item/:id", (req, res) => {
   db.Item.update(req.body, {
     where: {
       id: req.params.id,
     },
-  }).then((updatedItem) => {
-    console.log(updatedItem);
-    res.end();
-  });
+  })
+    .then((updatedItem) => {
+      console.log(updatedItem);
+      res.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "faild to update item",
+      });
+    });
 });
 
 module.exports = router;

@@ -1,69 +1,70 @@
 
 <div class="grid-container full">
   <div class="grid-x grid-margin-x">
-    <div class="cell small-4"></div>
-    <div class="cell small-4"><h1>Edit Item</h1> <a class="button" href="/allItem">Back</a></div>
-    <div class="cell small-4"></div>
-  </div>
-</div>
- <form id="monkey-code">
+    <div class="cell small-3"></div>
+    <div class="cell small-6"><h1>Edit Item</h1> <a class="button" href="/allItem">Back</a>
+    <form id="monkey-code">
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
-      <div class="medium-6 cell">
-        <label>Item Name/Tool Name/ Part Name
-          <input type="text" placeholder="wrench/lug nut" id="input-name" value="{{name}}">
-        </label>
-      </div>
-      <div class="medium-6 cell">
-        <label>department/location
-          <input type="text" placeholder="#12 Tool Trailer/sandblasting Georgia" id="department-department" value="{{placement}}">
-        </label>
-      </div>
-       <div class="medium-6 cell">
-        <label>Part Number/serial number
-          <input type="text" placeholder="034758430958" id="serial-num" value="{{serial}}">
-        </label>
-      </div>
-       <div class="medium-6 cell">
-        <label>count
-          <input type="text" placeholder="5" id="exact-count" value="{{count}}">
-        </label>
-      </div>
-      <div class="medium-6 cell">
-        <label>
-          <input type="hidden" placeholder="" value="{{id}}" id="item-id" >
-        </label>
+     
+      
+          <input type="text" value="{{name}}" id="name-input">
+     
+   
+        
+          <input type="text" value="{{placement}}" id="placement-input">
+     
+
+     
+          <input type="text" value="{{serial}}" id="serial-num" >
+
+   
+          <input type="text" value="{{count}}" id="exact-count" >
+
+        
+          <input type="hidden" value="{{id}}" id="item-id" >
+ 
       </div>
     </div>
   </div>
+  <button> go</button>
 
-   <div class="input-group-button">
-    <input type="submit" class="large button" href="/view/{{id}}" value="Submit" id="add-tool">
+
 </form>
-   </div>
-   
+    
+    </div>
+
+
+    <div class="cell small-3"></div>
+  </div>
 </div>
 
 <script>
-  $("#monkey-code").on("submit", function(event){
-    const name = $("#input-name").vall();
-     const placement = $("#department-department").vall();
+  $("#monkey-code").on("submit", function (event) {
+      event.preventDefault();
+    const name = $("#name-input").vall();
+     const placement = $("#placement-input").vall();
     const serial $("#serial-num").vall();
     const Count = $("#exact-count").vall();
     const id = $("#item-id").vall();
-  event.preventDefault();
+console.log(id);
  $.ajax({
    url:`/api/item/${id}`,
-   mothod: put,
+   method: "PUT",
    data: {
      name: name,
      placement: placement,
      serial: serial,
      count: Count,
-     
-   }
- }).then(function(){
-   window.location.href= `/view/{{id}}`
+   },
+ }).then(function () {
+ window.location.href = `/item/${id}`;
+ }).catch(err => {
+   console.log(err)
+    res.status(500).json({
+        error: true,
+        data: null,
+        message: "faild to update item",
+      });
  })
-  
   })
