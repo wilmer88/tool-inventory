@@ -23,6 +23,7 @@
     "express": "^4.17.3",
     "express-handlebars": "^6.0.2",
     "handlebars": "^4.7.7",
+    "handlebars-form-helpers": "^0.1.4",
     "mysql2": "^2.3.3",
     "sequelize": "^6.16.2"
   }

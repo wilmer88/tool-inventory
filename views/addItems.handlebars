@@ -1,4 +1,3 @@
-
 <div class="grid-container full">
   <div class="grid-x grid-margin-x">
     <div class="cell small-4"></div>
@@ -6,7 +5,7 @@
     <div class="cell small-4"></div>
   </div>
 </div>
- <form>
+ <form id="monkey-code">
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
@@ -38,3 +37,11 @@
    </div>
    
 </div>
+
+<script>$("#monkey-code").on("submit", function(event){
+  event.preventDefault();
+  window.location.href= "/api/item";
+  
+  })
+
+</script>

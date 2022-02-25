@@ -1,1 +1,46 @@
 <h1>this is where editing a item happens</h1>
+<div class="grid-container full">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-4"></div>
+    <div class="cell small-4"><h1>Edit Item</h1></div>
+    <div class="cell small-4"></div>
+  </div>
+</div>
+ <form id="monkey-code">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <label>Item Name/Tool Name/ Part Name
+          <input type="text" placeholder="wrench/lug nut" id="tool-name">
+        </label>
+      </div>
+      <div class="medium-6 cell">
+        <label>department/location
+          <input type="text" placeholder="#12 Tool Trailer/sandblasting Georgia" id="department-location">
+        </label>
+      </div>
+       <div class="medium-6 cell">
+        <label>Part Number/serial number
+          <input type="text" placeholder="034758430958" id="serial-num" value="4535245">
+        </label>
+      </div>
+       <div class="medium-6 cell">
+        <label>count
+          <input type="text" placeholder="5" id="exact-count">
+        </label>
+      </div>
+    </div>
+  </div>
+
+   <div class="input-group-button">
+    <input type="submit" class="large button" value="Submit" id="add-tool">
+</form>
+   </div>
+   
+</div>
+
+<script>$("#monkey-code").on("submit", function(event){
+  event.preventDefault();
+ 
+  
+  })

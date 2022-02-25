@@ -1,17 +1,107 @@
 
-<div class="callout large primary">
-      <div class="row column text-center">
-        <h1>Welcome To Inventory Finder</h1>
-        <h2 class="subheader">Tracking Inventory for everyone</h2>
+    <!-- Info Banner For Announcements or Links -->
+    <!-- <a href="https://zurb.com/university/foundation-intro" class="docs-banner course-banner">
+      <div class="info">
+        <h5 class=""><strong>To master everything new in 6.4, along with the rest of Foundation register for our Aug 8th Webinar Class &rsaquo;</strong></h5>
       </div>
-    </div>
-    <div class="grid-container full">
-  <div class="grid-x grid-margin-x">
-    <div class="cell small-3"></div>
-    <div class="cell small-7">  <ul class="no-bullet">list of</ul>
-<ul class="list-disc"><li>parts</li>
-</ul>
-<ul class="list-circle"><li>tools</li></ul>
-<ul class="list-square"><li>supplies</li></ul></div>
-    <div class="cell small-2"></div>
-  </div>
+    </a> -->
+    
+    <!-- <a href="https://zurb.com/wired" id="notice">
+      <div class="info hide-for-small">
+        <div id="clockdiv" class="countdown">
+            <span class="timer-day days"></span>
+            <span class="timer-colon">:</span>
+          <span class="timer-hour hours"></span>
+          <span class="timer-colon">:</span>
+          <span class="timer-hour minutes"></span>
+          <span class="timer-colon">:</span>
+          <span class="timer-seconds seconds"></span>
+        </div>
+      </div>
+    </a> -->
+
+    
+        <div class="callout large primary">
+          <div class="text-center">
+            <h1>Our Blog</h1>
+          </div>
+        </div>
+    
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x" id="content" data-mutate="f95ynl-sticky" data-events="mutate">
+          <div class="medium-9 cell">
+
+               <div class="blog-post">
+             <div class="callout">
+                  <h3>Announcement for: <small>3/6/2016</small></h3>
+              </div>
+              
+              <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+            </div>
+    
+            
+
+            <div class="blog-post">
+             <div class="callout">
+                  <h3>Announcement for: <small>3/6/2016</small></h3>
+              </div>
+              
+              <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+            </div>
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+          <div class="medium-3 cell sticky-container" data-sticky-container="" style="height: 287.125px;">
+            <div class="sticky is-anchored is-at-top" data-sticky="" data-anchor="content" data-resize="f95ynl-sticky" data-mutate="f95ynl-sticky" data-e="apotcy-e" data-events="mutate" style="margin-top: 0px; bottom: auto; top: 0px; max-width: 355px;">
+              <h4>Categories</h4>
+              <ul>
+                <li><a href="#">Skyler</a></li>
+                <li><a href="#">Jesse</a></li>
+                <li><a href="#">Mike</a></li>
+                <li><a href="#">Holly</a></li>
+              </ul>
+    
+         <div class="callout secondary">
+           <form id="search-for-item">
+              <div class="grid-x">
+                <div class="small-12 cell">
+                  <label>Find Your Dream Planet
+                    <input type="text" placeholder="Search destinations">
+                  </label>
+                </div>
+                <div class="small-12 cell">
+                  <label>Number of Moons
+                    <input type="number" placeholder="Moons required">
+                  </label>
+                  <button type="submit" class="button">Search Now!</button>
+                </div>
+              </div>
+            </form>
+          </div>
+            </div>
+          </div>
+        </div>
+    
+     
+    </article>
+
+
+     
+    <script>
+$("#search-for-items").on("click", function(e){
+  e.preventDefault()
+  window.location.replace("/allItems")
+})
+</script>
+<script src="handlebars.js"></script>
+<script src="handlebars.form-helpers.js"></script>
+

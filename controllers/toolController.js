@@ -23,7 +23,7 @@ router.get("/item/add", function (req, res) {
   res.render("addItems");
 });
 router.get("/item/:id", function (req, res) {
-  res.render("findItem");
+  res.render("foundItem");
 });
 router.get("/item/:id/edit", function (req, res) {
   res.render("editItem");
