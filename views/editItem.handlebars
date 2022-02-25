@@ -1,52 +1,20 @@
-
-<div class="grid-container full">
-  <div class="grid-x grid-margin-x">
-    <div class="cell small-3"></div>
-    <div class="cell small-6"><h1>Edit Item</h1> <a class="button" href="/allItem">Back</a>
-    <form id="monkey-code">
-  <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-     
-      
-          <input type="text" value="{{name}}" id="name-input">
-     
-   
-        
-          <input type="text" value="{{placement}}" id="placement-input">
-     
-
-     
-          <input type="text" value="{{serial}}" id="serial-num" >
-
-   
-          <input type="text" value="{{count}}" id="exact-count" >
-
-        
+  <form id="monkey-code">
+          <input type="text" value="{{name}}" id="name-input" aria-label="name of item">     
+          <input type="text" value="{{placement}}" id="placement-input" aria-label="department placement">
+          <input type="text" value="{{serial}}" id="serial-num" aria-label="serial number" >
+          <input type="text" value="{{count}}" id="exact-count" aria-label="count" >
           <input type="hidden" value="{{id}}" id="item-id" >
- 
-      </div>
-    </div>
-  </div>
-  <button> go</button>
-
-
-</form>
+        <button> go</button>
+        </form>
     
-    </div>
-
-
-    <div class="cell small-3"></div>
-  </div>
-</div>
-
-<script>
+    <script>
   $("#monkey-code").on("submit", function (event) {
       event.preventDefault();
-    const name = $("#name-input").vall();
-     const placement = $("#placement-input").vall();
-    const serial $("#serial-num").vall();
-    const Count = $("#exact-count").vall();
-    const id = $("#item-id").vall();
+    const name = $("#name-input").val();
+     const placement = $("#placement-input").val();
+    const serial = $("#serial-num").val();
+    const Count = $("#exact-count").val();
+    const id = $("#item-id").val();
 console.log(id);
  $.ajax({
    url:`/api/item/${id}`,
@@ -58,7 +26,7 @@ console.log(id);
      count: Count,
    },
  }).then(function () {
- window.location.href = `/item/${id}`;
+ window.location.replace(`/item/${id}`);
  }).catch(err => {
    console.log(err)
     res.status(500).json({
@@ -68,3 +36,4 @@ console.log(id);
       });
  })
   })
+  </script>
