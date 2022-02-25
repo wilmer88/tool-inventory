@@ -22,7 +22,7 @@ app.use(express.json());
 // const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 // handlebars: allowInsecurePrototypeAccess(exphbs)
 
-// app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname,"/public")));
 
 // var { engine } = require("express-handlebars");
 //Set Handlebars as the default templating engine. parse request body as json

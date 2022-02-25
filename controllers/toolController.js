@@ -34,6 +34,7 @@ router.get("/item/:id", function (req, res) {
       serial: oneFoundItem.serial,
       count: oneFoundItem.count,
       id: oneFoundItem.id,
+      createdAt: oneFoundItem.createdAt
     });
   });
 });
@@ -56,6 +57,7 @@ router.get("/item/:id/edit", (req, res) => {
 });
 
 router.post("/api/item", (req, res) => {
+  console.log(req.body);
   db.Item.create(req.body)
     .then((newItem) => {
       res.json({

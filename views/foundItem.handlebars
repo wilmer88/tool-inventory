@@ -1,18 +1,33 @@
-           <a href="/allItem">  <button>back</button> </a> 
-             <div class="callout">
-                 name: <h3> {{name}} </h3>
+   <article class="grid-container">
+      <div class="grid-x align-center">
+        <div class="cell medium-8">
+          <div class="blog-post">
+            <h3>Created Date <small>{{createdAt}}</small></h3>
+                   <div class="callout">
+               <p>name:</p><h3> {{name}} </h3>
               </div>
               
              <div class="callout">
-                 location/discription: <h3>{{placement}} </h3>
+               <p> location/discription:</p>  <h3>{{placement}} </h3>
               </div>
              <div class="callout">
-                serial/part#:  <h3>{{serial}} </h3>
+              <p>serial/part#: </p>   <h3>{{serial}} </h3>
               </div>
              <div class="callout">
-                  count:<h3>{{count}} </h3>
+                <p> count: </p>  <h3>{{count}} </h3>
               </div>
-          
-              
-
+            <div class="callout">
+              <ul class="menu simple">
+                <li>Edited:{{updatedAt}}</li>
+                <li>Database Id: {{id}}</li>
+                 <li><a class="button secondary large " href="/allItem">Back</a></li>
+                <li><a class="button primary large" href="/item/{{id}}/edit">Edit</a></li>
+                 <li><button type="button tiny" class="alert button">Delete</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
     
+
+      </div>
+   </article>
