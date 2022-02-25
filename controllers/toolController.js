@@ -19,7 +19,7 @@ router.get("/allItem", (req, res) => {
 });
 
 router.get("/item/new", (req, res) => {
-  res.render("addItem");
+  res.render("addItems");
 });
 
 router.get("/item/:id", function (req, res) {
@@ -29,11 +29,11 @@ router.get("/item/:id", function (req, res) {
     },
   }).then((oneFoundItem) => {
     res.render("foundItem", {
-      id: oneFoundItem.id,
       name: oneFoundItem.name,
       placement: oneFoundItem.placement,
       serial: oneFoundItem.serial,
       count: oneFoundItem.count,
+      id: oneFoundItem.id,
     });
   });
 });
