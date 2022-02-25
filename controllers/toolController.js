@@ -22,11 +22,37 @@ router.get("/allItem", (req, res) => {
 router.get("/item/add", function (req, res) {
   res.render("addItems");
 });
-router.get("/item/:id", function (req, res) {
-  res.render("foundItem");
+router.get("/view/:id", function (req, res) {
+  db.Item.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).then((oneFoundItem) => {
+    res.render("foundItem", {
+      name: oneFoundItem.name,
+      placement: oneFoundItem.placement,
+      serial: oneFoundItem.serial,
+      count: oneFoundItem.count,
+    });
+  });
 });
+// router.get("/item/:id", function (req, res) {
+// db.Item.
+// });
 router.get("/item/:id/edit", function (req, res) {
-  res.render("editItem");
+  db.Item.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).then((EditoneFoundItem) => {
+    console.log(EditoneFoundItem);
+    res.render("editItem", {
+      name: EditoneFoundItem.name,
+      placement: EditoneFoundItem.placement,
+      serial: EditoneFoundItem.serial,
+      count: EditoneFoundItem.count,
+    });
+  });
 });
 // api routes
 router.post("/api/item", (req, res) => {
@@ -42,6 +68,17 @@ router.post("/api/item", (req, res) => {
       console.log(err);
       res.status(500).json({});
     });
+});
+
+router.put("api/item/:id", (req, res) => {
+  db.Item.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  }).then((updatedItem) => {
+    console.log(updatedItem);
+    res.end();
+  });
 });
 
 module.exports = router;

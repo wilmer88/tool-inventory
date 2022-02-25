@@ -51,4 +51,3 @@ db.sequelize.sync().then(function () {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
 });
-

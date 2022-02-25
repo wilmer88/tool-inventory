@@ -1,8 +1,8 @@
-<h1>this is where editing a item happens</h1>
+
 <div class="grid-container full">
   <div class="grid-x grid-margin-x">
     <div class="cell small-4"></div>
-    <div class="cell small-4"><h1>Edit Item</h1></div>
+    <div class="cell small-4"><h1>Edit Item</h1> <a class="button" href="/allItem">Back</a></div>
     <div class="cell small-4"></div>
   </div>
 </div>
@@ -11,36 +11,59 @@
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
         <label>Item Name/Tool Name/ Part Name
-          <input type="text" placeholder="wrench/lug nut" id="tool-name">
+          <input type="text" placeholder="wrench/lug nut" id="input-name" value="{{name}}">
         </label>
       </div>
       <div class="medium-6 cell">
         <label>department/location
-          <input type="text" placeholder="#12 Tool Trailer/sandblasting Georgia" id="department-location">
+          <input type="text" placeholder="#12 Tool Trailer/sandblasting Georgia" id="department-department" value="{{placement}}">
         </label>
       </div>
        <div class="medium-6 cell">
         <label>Part Number/serial number
-          <input type="text" placeholder="034758430958" id="serial-num" value="4535245">
+          <input type="text" placeholder="034758430958" id="serial-num" value="{{serial}}">
         </label>
       </div>
        <div class="medium-6 cell">
         <label>count
-          <input type="text" placeholder="5" id="exact-count">
+          <input type="text" placeholder="5" id="exact-count" value="{{count}}">
+        </label>
+      </div>
+      <div class="medium-6 cell">
+        <label>
+          <input type="hidden" placeholder="" value="{{id}}" id="item-id" >
         </label>
       </div>
     </div>
   </div>
 
    <div class="input-group-button">
-    <input type="submit" class="large button" value="Submit" id="add-tool">
+    <input type="submit" class="large button" href="/view/{{id}}" value="Submit" id="add-tool">
 </form>
    </div>
    
 </div>
 
-<script>$("#monkey-code").on("submit", function(event){
+<script>
+  $("#monkey-code").on("submit", function(event){
+    const name = $("#input-name").vall();
+     const placement = $("#department-department").vall();
+    const serial $("#serial-num").vall();
+    const Count = $("#exact-count").vall();
+    const id = $("#item-id").vall();
   event.preventDefault();
- 
+ $.ajax({
+   url:`/api/item/${id}`,
+   mothod: put,
+   data: {
+     name: name,
+     placement: placement,
+     serial: serial,
+     count: Count,
+     
+   }
+ }).then(function(){
+   window.location.href= `/view/{{id}}`
+ })
   
   })
