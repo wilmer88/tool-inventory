@@ -1,47 +1,58 @@
-   <br><div class="grid-container full">
- 
-  <div class="grid-x aligncenter">
-    
-    <div class="cell small-3"></div>
-
-    <div class="cell small-6">
+   <br>
+    <div class="grid-x align-center">
+<div class="cell small-6">
          <div class="callout">
              <h1>Add New Item or Tool</h1>
+               
+    <button type="submit" class="button secondary" href="/">back</button>
+  
               </div>
-
-       <form id="chevy-rider">
-       
-          Item Name/Tool Name/ Part Name:
+              <form id="chevy-rider">
+<label>
+   Item Name/Tool or Part-Name:
           <input type="text" value="{{name}}" id="new-name"  aria-label="add tool or item name">
-       
-     
-     
+</label>
+        
+  
+<label>
           department/location:
           <input type="text" value="{{placement}}" id="new-location"  aria-label="add location or department">
-        </label>
-    
-     
-          Part Number/serial number:
-          <input type="text" value="{{serial}}" id="new-serial" aria-label="add serial or part number">
+</label>        
+        
    
+<label>
+         Part Number/serial-number:
+          <input type="text" value="{{serial}}" id="new-serial" aria-label="add serial or part number">
+</label>
+      
+   
+<label>
+      count:
+     <input type="text" value="{{count}}"  id="new-count"  aria-label="add count">
+</label>  
 
+        <input type="hidden" value="{{id}}" id="new-id" >
+      
+     
+      <button type="submit" class="button success">Add</button>
+     </form>
+    
+    </div>
 
-          count:
-          <input type="text" value="{{count}}"  id="new-count"  aria-label="add count">
-          
-     <button type="submit" class="button">Add</button>
-     </form><div class="cell small-3"></div>
- </div>
-</div>
+    </div>
+
 
 
 <script>
-  $("chevy-rider").on("submit", function(event){ 
-  event.preventDefault();
+  $("#chevy-rider").on("submit", function(event){ 
+       event.preventDefault();
     const name = $("#new-name").val();
    const placement = $("#new-location").val();
   const serial = $("#new-serial").val();
   const count = $("#new-count").val();
+  const id = $("#new-id").val();
+  console.log(id);
+  
   $.ajax({
     url: `/api/item`,
     method: "POST",
@@ -52,7 +63,8 @@
       count: count,
     }
   }).then(function () {
-       location.reload();
+window.location.reload()
+ alert("successfully created entry on data base")
         })
 })
 </script>

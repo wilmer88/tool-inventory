@@ -29,14 +29,21 @@ router.get("/item/:id", function (req, res) {
     },
   }).then((oneFoundItem) => {
     res.render("foundItem", {
+      id: oneFoundItem.id,
       name: oneFoundItem.name,
       placement: oneFoundItem.placement,
       serial: oneFoundItem.serial,
       count: oneFoundItem.count,
-      id: oneFoundItem.id,
-      createdAt: oneFoundItem.createdAt
+      createdAt: oneFoundItem.createdAt,
+    })
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "unable to create item",
     });
-  });
+  })
 });
 
 router.get("/item/:id/edit", (req, res) => {
@@ -96,4 +103,15 @@ router.put("/api/item/:id", (req, res) => {
     });
 });
 
+router.delete("/api/thing/:id",(req, res) => {
+  db.Item.destroy({
+
+    where: { id: req.params.id}
+    
+  }).then(result => {
+    res.end()
+  })
+})
+
 module.exports = router;
+3454553

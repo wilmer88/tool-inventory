@@ -1,17 +1,18 @@
    <article class="grid-container">
       <div class="grid-x align-center">
         <div class="cell medium-8">
+            
           <div class="blog-post">
             <h3>Created Date <small>{{createdAt}}</small></h3>
                    <div class="callout">
-               <p>name:</p><h3> {{name}} </h3>
+               <p><strong>name:</strong></p><h3> <bold>{{name}}</bold></h3>
               </div>
               
              <div class="callout">
-               <p> location/discription:</p>  <h3>{{placement}} </h3>
+               <p> location/discription:</p>  <h3><bold>{{placement}}</bold> </h3>
               </div>
              <div class="callout">
-              <p>serial/part#: </p>   <h3>{{serial}} </h3>
+              <p><strong>Serial-Part #:</strong> </p>   <h3>{{serial}} </h3>
               </div>
              <div class="callout">
                 <p> count: </p>  <h3>{{count}} </h3>
@@ -20,14 +21,34 @@
               <ul class="menu simple">
                 <li>Edited:{{updatedAt}}</li>
                 <li>Database Id: {{id}}</li>
-                 <li><a class="button secondary large " href="/allItem">Back</a></li>
-                <li><a class="button primary large" href="/item/{{id}}/edit">Edit</a></li>
-                 <li><button type="button tiny" class="alert button">Delete</button></li>
-              </ul>
+             
+             </ul>   
             </div>
+             <div class="callout">
+             <a class="button expanded" href="/item/{{id}}/edit">Edit</a>
+              </div>
+               <div class="callout">
+           
+             <a class="button secondary expanded" href="/allItem">Back</a>
+              </div>
+            
+               <a class="button warning secondary expanded" id="delete" data-id="{{id}}">Delete Item</a>   
+           
+              
           </div>
         </div>
-    
-
       </div>
    </article>
+
+<script>
+  $("#delete").on("click", function (){
+    const idToDelete = $(this).data("id");
+    $.ajax({
+      url: `/api/thing/${idToDelete}`,
+      method: "DELETE"
+    }).then(function (){
+     window.location.replace("/allItem");
+     alert("successfully deleted selected item")
+    })
+  })
+</script>
