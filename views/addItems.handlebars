@@ -32,8 +32,7 @@
 </label>  
 
         <input type="hidden" value="{{id}}" id="new-id" >
-      
-     
+
       <button type="submit" class="button success">Add</button>
      </form>
     
@@ -46,11 +45,13 @@
 <script>
   $("#chevy-rider").on("submit", function(event){ 
        event.preventDefault();
+       const routeName = $("#new-name").val().replace(/\s+/g, "").toLowerCase();
     const name = $("#new-name").val();
    const placement = $("#new-location").val();
   const serial = $("#new-serial").val();
   const count = $("#new-count").val();
   const id = $("#new-id").val();
+  
   console.log(id);
   
   $.ajax({
@@ -61,6 +62,7 @@
       placement: placement,
       serial: serial,
       count: count,
+      routeName: routeName,
     }
   }).then(function () {
 window.location.reload()

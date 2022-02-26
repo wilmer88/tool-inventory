@@ -65,19 +65,20 @@ router.get("/item/:id/edit", (req, res) => {
   });
 });
 
-router.get("/api/item/:name?", (req, res) => {
+router.get("/api/item/:routeName?", (req, res) => {
   db.Item.findOne({
     where: {
-      name: req.params.name,
+      routeName: req.params.routeName,
     },
   })
     .then((serchedItem) => {
-      res.render("index", {
+      res.render("itemSearch", {
         id: serchedItem.id,
         name: serchedItem.name,
         placement: serchedItem.placement,
         serial: serchedItem.serial,
         count: serchedItem.count,
+        createdAt: serchedItem.createdAt,
       });
     })
     .catch((err) => {
@@ -92,6 +93,7 @@ router.get("/api/item/:name?", (req, res) => {
 
 router.post("/api/item", (req, res) => {
   console.log(req.body);
+
   db.Item.create(req.body)
     .then((newItem) => {
       res.json({
@@ -139,4 +141,3 @@ router.delete("/api/thing/:id", (req, res) => {
 });
 
 module.exports = router;
-3454553;

@@ -1,0 +1,59 @@
+      <div class="callout large primary">
+          <div class="text-center">
+            <h1>your searched item</h1>
+          </div>
+        </div>
+   <article class="grid-container">
+      <div class="grid-x align-center">
+        <div class="cell medium-8">
+            
+          <div class="blog-post">
+            <h3>Created Date <small>{{createdAt}}</small></h3>
+                   <div class="callout">
+               <p><strong>name:</strong></p><h3> <bold>{{name}}</bold></h3>
+              </div>
+              
+             <div class="callout">
+               <p> location/discription:</p>  <h3><bold>{{placement}}</bold> </h3>
+              </div>
+             <div class="callout">
+              <p><strong>Serial-Part #:</strong> </p>   <h3>{{serial}} </h3>
+              </div>
+             <div class="callout">
+                <p> count: </p>  <h3>{{count}} </h3>
+              </div>
+            <div class="callout">
+              <ul class="menu simple">
+                <li>Edited:{{updatedAt}}</li>
+                <li>Database Id: {{id}}</li>
+             
+             </ul>   
+            </div>
+             <div class="callout">
+             <a class="button expanded" href="/item/{{id}}/edit">Edit</a>
+              </div>
+               <div class="callout">
+           
+             <a class="button secondary expanded" href="/">Back</a>
+              </div>
+            
+               <a class="button warning secondary expanded" id="delete" data-id="{{id}}">Delete Item</a>   
+           
+              
+          </div>
+        </div>
+      </div>
+   </article>
+
+<script>
+  $("#delete").on("click", function (){
+    const idToDelete = $(this).data("id");
+    $.ajax({
+      url: `/api/thing/${idToDelete}`,
+      method: "DELETE"
+    }).then(function (){
+     window.location.replace("/allItem");
+     alert("successfully deleted selected item")
+    })
+  })
+</script>
