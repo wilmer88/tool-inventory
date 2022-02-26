@@ -27,23 +27,25 @@ router.get("/item/:id", function (req, res) {
     where: {
       id: req.params.id,
     },
-  }).then((oneFoundItem) => {
-    res.render("foundItem", {
-      id: oneFoundItem.id,
-      name: oneFoundItem.name,
-      placement: oneFoundItem.placement,
-      serial: oneFoundItem.serial,
-      count: oneFoundItem.count,
-      createdAt: oneFoundItem.createdAt,
-    })
-  }).catch((err) => {
-    console.log(err)
-    res.status(500).json({
-      error: true,
-      data: null,
-      message: "unable to create item",
-    });
   })
+    .then((oneFoundItem) => {
+      res.render("foundItem", {
+        id: oneFoundItem.id,
+        name: oneFoundItem.name,
+        placement: oneFoundItem.placement,
+        serial: oneFoundItem.serial,
+        count: oneFoundItem.count,
+        createdAt: oneFoundItem.createdAt,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to create item",
+      });
+    });
 });
 
 router.get("/item/:id/edit", (req, res) => {
@@ -61,6 +63,31 @@ router.get("/item/:id/edit", (req, res) => {
       count: foundO.count,
     });
   });
+});
+
+router.get("/api/item/:name?", (req, res) => {
+  db.Item.findOne({
+    where: {
+      name: req.params.name,
+    },
+  })
+    .then((serchedItem) => {
+      res.render("index", {
+        id: serchedItem.id,
+        name: serchedItem.name,
+        placement: serchedItem.placement,
+        serial: serchedItem.serial,
+        count: serchedItem.count,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to find searched item",
+      });
+    });
 });
 
 router.post("/api/item", (req, res) => {
@@ -103,15 +130,13 @@ router.put("/api/item/:id", (req, res) => {
     });
 });
 
-router.delete("/api/thing/:id",(req, res) => {
+router.delete("/api/thing/:id", (req, res) => {
   db.Item.destroy({
-
-    where: { id: req.params.id}
-    
-  }).then(result => {
-    res.end()
-  })
-})
+    where: { id: req.params.id },
+  }).then((result) => {
+    res.end();
+  });
+});
 
 module.exports = router;
-3454553
+3454553;
