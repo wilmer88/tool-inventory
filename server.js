@@ -2,7 +2,7 @@
 const express = require("express");
 //espress handlebars node package. set handlebars
 const exphbs = require("express-handlebars");
-const path = require('path');
+const path = require("path");
 // Create an instance of the express app.
 const app = express();
 const db = require("./models");
@@ -22,8 +22,6 @@ app.use(express.json());
 // const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 // handlebars: allowInsecurePrototypeAccess(exphbs)
 
-
-
 // var { engine } = require("express-handlebars");
 //Set Handlebars as the default templating engine. parse request body as json
 app.engine(
@@ -34,7 +32,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static("public"));
 app.use(routes);
 
 app.get("/", (req, res) => {
