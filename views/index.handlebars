@@ -28,10 +28,8 @@
 
       <div class="blog-post">
         <div id="show-place" class="callout">
-       
-            <h3>Fight Fan Lore:<small>Khamzat Chirmaev</small></h3>
-     
-          
+
+          <h3>Fight Fan Lore:<small>Khamzat Chirmaev</small></h3>
 
         </div>
 
@@ -92,7 +90,7 @@
                   />
                 </label>
 
-                <button id="g-button" type="submit" class="button">Search Now!</button>
+                <button id="g-button" type="submit"  class="button">Search Now!</button>
               </div>
             </div>
           </form>
@@ -105,8 +103,12 @@
 <script>
   $("#tax-form").on("submit", function (event) { event.preventDefault(); var
   itemToSearch = $("#g-search").val().trim(); itemToSearch =
-  itemToSearch.replace(/\\\s+/g, "").toLowerCase(); $.ajax({ url:
-  `api/item/${itemToSearch}`, method: "GET" }).then(function (data){
-  console.log(data) window.location.replace(`/api/item/${itemToSearch}`) }) })
-
+  itemToSearch.replace(/\\\\s+/g, "").toLowerCase(); $.ajax({ url:
+  `api/item/${itemToSearch}`, method: "GET", error: function(response){
+alert("Searched entry not in inventory database")
+  }}).then(function (data){
+ 
+  window.location.href=`/api/item/${itemToSearch}`
+    
+ }) })
 </script>
