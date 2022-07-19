@@ -20,7 +20,7 @@
   "homepage": "https://github.com/wilmer88/tool-inventory#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
-    "express": "^4.17.3",
+    "express": "^4.18.1",
     "express-handlebars": "^6.0.2",
     "handlebars": "^4.7.7",
     "handlebars-form-helpers": "^0.1.4",
