@@ -6,6 +6,6 @@ MVC, Ajax, Handlebars.js, express, express-handlebars, sequelize, Node, MySQL2, 
 
 ### pitch 
 Having many tools and inventory is essential to running a business. Keeping track of who has it, where it is and how much of it, or details of the items can be dificult to keep track of. Thats is why Tool inventory was created helping businesses save serial numbers/part#, quantity, location and who it was assignd to.  tool-inventory saves all that to a database accessable enywhere in the wrold just visitng the app. No more forgetting item location or detailed information with tool-inventory.
-![home page screenshot](/public/asset/images/home.png)
+![homepagescreenshot](/asset/images/home.png)
 
-![all page screenshot](/public/asset/images/all.png)
+![allpagescreenshot](/asset/images/all.png)
