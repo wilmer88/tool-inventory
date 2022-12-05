@@ -7,9 +7,7 @@ const path = require("path");
 const app = express();
 const db = require("./models");
 const handlebars = require("handlebars");
-const {
-  allowInsecurePrototypeAccess,
-} = require("@handlebars/allow-prototype-access");
+const {allowInsecurePrototypeAccess,} = require("@handlebars/allow-prototype-access");
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080;
 
@@ -19,7 +17,7 @@ const routes = require("./controllers/toolController.js");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+
 // handlebars: allowInsecurePrototypeAccess(exphbs)
 
 // var { engine } = require("express-handlebars");
