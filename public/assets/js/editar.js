@@ -1,11 +1,10 @@
-
-
-  $("#monkey-code").on("submit", function (event) {
+$("#monkey-code").on("submit", function (event) {
     event.preventDefault();
   const name = $("#name-input").val();
    const placement = $("#placement-input").val();
   const serial = $("#serial-num").val();
   const count = $("#exact-count").val();
+  const countedName = $("#counted-by").val();
   const id = $("#item-id").val();
 console.log(id);
 $.ajax({
@@ -16,6 +15,7 @@ $.ajax({
    placement: placement,
    serial: serial,
    count: count,
+   countedBy: countedName
  },
 }).then(function () {
 window.location.replace(`/item/${id}`);

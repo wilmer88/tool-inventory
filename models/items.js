@@ -13,7 +13,9 @@ module.exports = function (sequelize, DataTypes) {
       count: {
         type: DataTypes.INTEGER,
       },
- 
+      countedBy: {
+        type: DataTypes.STRING,
+      },
       routeName:{
         type: DataTypes.STRING,
       }

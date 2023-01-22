@@ -35,6 +35,7 @@ router.get("/item/:id", function (req, res) {
         placement: oneFoundItem.placement,
         serial: oneFoundItem.serial,
         count: oneFoundItem.count,
+        countedBy: oneFoundItem.countedBy,
         createdAt: oneFoundItem.createdAt,
       });
     })
@@ -61,6 +62,7 @@ router.get("/item/:id/edit", (req, res) => {
       placement: foundO.placement,
       serial: foundO.serial,
       count: foundO.count,
+      countedBy: foundO.countedBy,
     });
   }).catch((err) => {
     console.log(err);
@@ -86,6 +88,7 @@ router.get("/api/item/:routeName?", (req, res) => {
         placement: serchedItem.placement,
         serial: serchedItem.serial,
         count: serchedItem.count,
+        countedBy: serchedItem.countedBy,
         createdAt: serchedItem.createdAt,
       });
     })
