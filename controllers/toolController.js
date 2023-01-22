@@ -1,5 +1,3 @@
-
-   
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
@@ -45,7 +43,7 @@ router.get("/item/:id", function (req, res) {
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to create item",
+        message: "unable to create resource",
       });
     });
 });
@@ -64,7 +62,15 @@ router.get("/item/:id/edit", (req, res) => {
       serial: foundO.serial,
       count: foundO.count,
     });
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "unable to edit resource",
+    });
   });
+  
 });
 
 router.get("/api/item/:routeName?", (req, res) => {
@@ -88,7 +94,7 @@ router.get("/api/item/:routeName?", (req, res) => {
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to find searched item",
+        message: "unable to find searched resource",
       });
     });
 });
@@ -101,7 +107,7 @@ router.post("/api/item", (req, res) => {
       res.json({
         error: false,
         data: newItem,
-        message: "successfully created new item",
+        message: "successfully created new resource",
       });
     })
     .catch((err) => {
@@ -109,7 +115,7 @@ router.post("/api/item", (req, res) => {
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to create item",
+        message: "Unable to create resource.",
       });
     });
 });
@@ -129,7 +135,7 @@ router.put("/api/item/:id", (req, res) => {
       res.status(500).json({
         error: true,
         data: null,
-        message: "faild to update item",
+        message: "Faild to update item.",
       });
     });
 });
@@ -139,6 +145,14 @@ router.delete("/api/thing/:id", (req, res) => {
     where: { id: req.params.id },
   }).then((result) => {
     res.end();
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "Faild to delete resource.",
+    });
   });
 });
 

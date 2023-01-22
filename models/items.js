@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
     const Item = sequelize.define("Item", {
       name: {
@@ -12,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
       count: {
         type: DataTypes.INTEGER,
       },
+ 
       routeName:{
         type: DataTypes.STRING,
       }
@@ -19,4 +21,3 @@ module.exports = function (sequelize, DataTypes) {
   
     return Item;
   };
-  
