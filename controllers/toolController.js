@@ -74,6 +74,7 @@ router.get("/item/:id/edit", (req, res) => {
   });
   
 });
+////////////////search by routename= name of item////////////////
 
 router.get("/api/item/:routeName?", (req, res) => {
   db.Item.findOne({
@@ -102,6 +103,37 @@ router.get("/api/item/:routeName?", (req, res) => {
     });
 });
 
+/////////////////search by department////////////////
+
+// router.get("/api/item/:routeName?", (req, res) => {
+//   db.Item.findOne({
+//     where: {
+//       routeName: req.params.routeName,
+//     },
+//   })
+//     .then((serchedItem) => {
+//       res.render("itemSearch", {
+//         id: serchedItem.id,
+//         name: serchedItem.name,
+//         placement: serchedItem.placement,
+//         serial: serchedItem.serial,
+//         count: serchedItem.count,
+//         countedBy: serchedItem.countedBy,
+//         createdAt: serchedItem.createdAt,
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({
+//         error: true,
+//         data: null,
+//         message: "unable to find searched resource",
+//       });
+//     });
+// });
+
+////////////////create new resource//////////////////
+
 router.post("/api/item", (req, res) => {
   console.log(req.body);
 
@@ -122,6 +154,8 @@ router.post("/api/item", (req, res) => {
       });
     });
 });
+
+///////////////edit resource///////////////////
 
 router.put("/api/item/:id", (req, res) => {
   db.Item.update(req.body, {
