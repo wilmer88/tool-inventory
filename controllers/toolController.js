@@ -22,6 +22,7 @@ router.get("/item/new", (req, res) => {
   res.render("addItems");
 });
 
+
 router.get("/item/:id", function (req, res) {
   db.Item.findOne({
     where: {

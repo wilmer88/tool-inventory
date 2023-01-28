@@ -1,14 +1,17 @@
-drop database if exists nmrnlexiy1pqivgu;
-create database nmrnlexiy1pqivgu;
-USE nmrnlexiy1pqivgu;
-SELECT * FROM items;
+drop database if exists t5rng6ofq8x2hgxg;
+create database t5rng6ofq8x2hgxg;
+USE t5rng6ofq8x2hgxg;
+SELECT * FROM Items;
 SELECT * FROM Users;
+SELECT * FROM DepartmentCrew;
 
 INSERT INTO Items
 VALUES (UUID(),"torque wrench","3",now(),now() );
 
 INSERT INTO Items
 VALUES (UUID(),"nosile", "150",now(),now() );
+INSERT INTO DepartmentCrew
+VALUES (UUID(),"Welding","Montana","Miklo","Welding",now(),now() );
 
 
 

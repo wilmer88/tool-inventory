@@ -1,0 +1,39 @@
+
+   <br>
+    <div class="grid-x align-center">
+<div class="cell small-6">
+         <div class="callout">
+             <h1>Add New Department or Crew</h1>
+                
+<a class="button secondary" href="/">Back</a>
+  
+              </div>
+              <form id="chevy-rider">
+<label>
+   Item Name:
+          <input type="text" value="{{departmentCrewName}}" id="new-departmentCrewName"  aria-label="add department or Crew Name">
+</label>
+        
+  
+<label>
+          Department/ Location:
+          <input type="text" value="{{supervisor}}" id="new-supervisor"  aria-label="add supervisor">
+</label>        
+        
+   
+<label>
+         Part Number/ Serial-Number:
+          <input type="text" value="{{ lead}}" id="new-lead" aria-label="add  lead">
+</label>
+      
+   
+
+        <input type="hidden" value="{{id}}" id="new-id" >
+
+      <button type="submit" class="button success">Add</button>
+     </form>
+    
+    </div>
+
+    </div>
+    <script src="/assets/js/departmentCrewAdd.js"></script>

@@ -11,7 +11,10 @@ const {allowInsecurePrototypeAccess,} = require("@handlebars/allow-prototype-acc
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080;
 
-const routes = require("./controllers/toolController.js");
+const itemController = require("./controllers/toolController.js");
+const departmentCrewController = require("./controllers/departmentCrewController.js");
+
+
 
 //middle ware for posting
 app.use(express.urlencoded({ extended: true }));
@@ -31,11 +34,14 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
-app.use(routes);
+
+
 
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.use(itemController);
+app.use(departmentCrewController);
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,

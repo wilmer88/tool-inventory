@@ -9,13 +9,10 @@ module.exports = function (sequelize, DataTypes) {
      lead: {
         type: DataTypes.STRING,
       },
-      totalItems: {
-        type: DataTypes.INTEGER,
-      },
       routeName:{
         type: DataTypes.STRING,
       }
     });
   
-    return Item;
+    return DepartmentCrew ;
   };

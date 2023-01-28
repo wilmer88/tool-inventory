@@ -1,5 +1,3 @@
-const departmentCrew = require("./departmentCrew");
-
 module.exports = function (sequelize, DataTypes) {
     const Item = sequelize.define("Item", {
       name: {
@@ -28,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
       // A Item can't be created without an departmentCrew due to the foreign key constraint
       Item .belongsTo(models.DepartmentCrew, {
         foreignKey: {
-          allowNull: false
+          
         }
       })
     }
