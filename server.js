@@ -35,13 +35,13 @@ app.engine(
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
+app.use(itemController);
+app.use(departmentCrewController);
 
 
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.use(itemController);
-app.use(departmentCrewController);
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,

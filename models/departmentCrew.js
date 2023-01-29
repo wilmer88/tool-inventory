@@ -13,6 +13,13 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
       }
     });
+    DepartmentCrew.associate = function(models) {
+      // Associating Author with Posts
+      // When an Author is deleted, also delete any associated Posts
+      DepartmentCrew.hasMany(models.Item, {
+        onDelete: "cascade"
+      });
+    };
   
     return DepartmentCrew ;
   };

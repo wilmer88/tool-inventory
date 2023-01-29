@@ -69,13 +69,15 @@
         data-events="mutate"
         style="margin-top: 0px; bottom: auto; top: 0px; max-width: 355px;"
       >
-        <h4>Used for</h4>
+        <h4>Department</h4>
+          
         <ul>
-          <li><a href="/allItem">Sand Blasting</a></li>
-          <li><a href="/allItem">Ware House</a></li>
-          <li><a href="/allItem">Saleried</a></li>
-          <li><a href="/allItem">Business</a></li>
+          {{#each departmentCrew}}
+         
+          <li><a href="/byDepartment">{{dpartmentCrew.departmentCrewName}}</a></li>
+              {{/each}}
         </ul>
+     
 
         <div class="callout secondary">
           <form id="tax-form">
@@ -101,4 +103,5 @@
     </div>
   </div>
 </article>
-<script src="assets/js/search.js"></script>
+{{!-- <script src="/assets/js/getDepartmentCrewAdd.js"></script> --}}
+
