@@ -1,6 +1,9 @@
+const items = require("./items");
+
 module.exports = function (sequelize, DataTypes) {
-    const DepartmentCrew = sequelize.define("DepartmentCrew", {
-      departmentCrewName: {
+    const Department= sequelize.define("Department", {
+      name: {
+        primaryKey:true,
         type: DataTypes.STRING,
       },
       supervisor: {
@@ -9,17 +12,25 @@ module.exports = function (sequelize, DataTypes) {
      lead: {
         type: DataTypes.STRING,
       },
-      routeName:{
-        type: DataTypes.STRING,
-      }
+ 
     });
-    DepartmentCrew.associate = function(models) {
+    Department.associate = function(models) {
       // Associating Author with Posts
       // When an Author is deleted, also delete any associated Posts
-      DepartmentCrew.hasMany(models.Item, {
-        onDelete: "cascade"
-      });
+      Department.hasMany(models.Item);
     };
   
-    return DepartmentCrew ;
+    return Department ;
   };
+
+
+
+
+  // Department.associate = function(models) {
+  //   // Associating Author with Posts
+  //   // When an Author is deleted, also delete any associated Posts
+  //   Department.hasMany(models.Item, {
+  //     as: "items",
+  //     onDelete: "cascade"
+  //   });
+  // };

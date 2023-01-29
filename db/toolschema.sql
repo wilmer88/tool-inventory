@@ -19,3 +19,14 @@ VALUES (UUID(),"Welding","Montana","Miklo","Welding",now(),now() );
 DELETE FROM tools WHERE "id" = "1";
 INSERT INTO tools
 VALUES (UUID(),"torque drill", "assembly",now(),now() );
+
+
+
+DROP DATABASE IF EXISTS t5rng6ofq8x2hgxg;
+CREATE DATABASE t5rng6ofq8x2hgxg;
+USE t5rng6ofq8x2hgxg;
+SELECT * FROM Items;
+SELECT * FROM Departments;
+ALTER TABLE Items
+DROP COLUMN DapartmentName;
+DROP TABLE table_name;

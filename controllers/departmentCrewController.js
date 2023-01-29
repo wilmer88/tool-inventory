@@ -8,20 +8,23 @@ const db = require("../models");
 
 router.get("/byDepartment", (req, res) => {
   db.Item.findAll({
-    include: db.DepartmentCrew
+    include: db.Department
 
   })
     .then((itemsByDepartment) => {
+      
       console.log(itemsByDepartment);
+      res.json(itemsByDepartment);
   
-      res.render("itemsByDepartment", { departmentItems: itemsByDepartment});
+      // res.render("itemsByDepartment", { departmentItems: itemsByDepartment});
+      
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to retrive allDepartmentCrew",
+        message: "unable to retrive all items from this Department",
       });
     });
 });
@@ -32,10 +35,10 @@ router.get("/byDepartment", (req, res) => {
 // /////////////////////////////////////////////////////////////////////////////////
 
 router.get("/", (req, res) => {
-  db.DepartmentCrew.findAll()
-    .then((allDepartmentCrew) => {
-      console.log(allDepartmentCrew)
-      res.render("index", { departmentCrew:allDepartmentCrew});
+  db.Department.findAll()
+    .then((departments) => {
+      console.log(departments)
+      res.render("index", { allDepartments:departments});
     })
     .catch((err) => {
       console.log(err);
@@ -51,10 +54,10 @@ router.get("/addDepartmentCrew/new", (req, res) => {
   res.render("addDepartmentCrew");
 });
 
-router.post("/api/departmentCrew", (req, res) => {
+router.post("/api/departmentPost", (req, res) => {
     console.log(req.body);
   
-    db.DepartmentCrew.create(req.body)
+    db.Department.create(req.body)
       .then((departmentCrew) => {
         res.json({
           error: false,

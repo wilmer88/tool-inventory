@@ -1,35 +1,36 @@
 module.exports = function (sequelize, DataTypes) {
     const Item = sequelize.define("Item", {
-      name: {
-        type: DataTypes.STRING,
-      },
+      name: DataTypes.STRING,
+      placement: DataTypes.STRING,
+      serial: DataTypes.STRING,
+      count: DataTypes.INTEGER,
+      countedBy: DataTypes.STRING,
+      routeName:DataTypes.STRING,
+      });
 
-      placement: {
-        type: DataTypes.STRING,
-      },
-     serial: {
-        type: DataTypes.STRING,
-      },
-      count: {
-        type: DataTypes.INTEGER,
-      },
-      countedBy: {
-        type: DataTypes.STRING,
-      },
-      routeName:{
-        type: DataTypes.STRING,
+      
+  Item.associate = function(models) {
+
+    Item.belongsTo(models.Department, {
+      foreignKey: {
+        allowNull: false
       }
-
+      
     });
-    Item .associate = function(models) {
-      // We're saying that a Post should belong to an 
-      // A Item can't be created without an departmentCrew due to the foreign key constraint
-      Item .belongsTo(models.DepartmentCrew, {
-        foreignKey: {
-          
-        }
-      })
-    }
-  
+};
+
     return Item;
   };
+
+
+
+
+
+
+
+
+// {
+//   associate: function(models){
+//   Item.belongsTo(models.Department,{ foreignKey:"name"})
+// }
+// }

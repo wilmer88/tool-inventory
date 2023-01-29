@@ -1,23 +1,19 @@
 $("#chevy-rider").on("submit", function (event) {
   event.preventDefault();
   const routeName = $("#new-name").val().replace(/\s+/g, "").toLowerCase();
-  const DepartmentCrew = $("#new-DepartmentCrew").val();
+  const Department = $("#new-DepartmentName").val();
   const name = $("#new-name").val();
   const placement = $("#new-location").val();
   const serial = $("#new-serial").val();
   const count = $("#new-count").val();
   const countedName = $("#new-countedBy").val();
-
-
   const id = $("#new-id").val();
-
   console.log(id);
-
   $.ajax({
     url: "/api/item",
     method: "POST",
     data: {
-      DepartmentCrew: DepartmentCrew,
+      DepartmentName: Department,
       name: name,
       placement: placement,
       serial: serial,

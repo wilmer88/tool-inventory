@@ -14,12 +14,9 @@ const PORT = process.env.PORT || 8080;
 const itemController = require("./controllers/toolController.js");
 const departmentCrewController = require("./controllers/departmentCrewController.js");
 
-
-
 //middle ware for posting
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 // handlebars: allowInsecurePrototypeAccess(exphbs)
 
@@ -38,7 +35,6 @@ app.use(express.static("public"));
 app.use(itemController);
 app.use(departmentCrewController);
 
-
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -47,7 +43,7 @@ app.get("/api/config", (req, res) => {
     success: true,
   });
 });
-
+// db.sequelize.sync({force: true}).then(function () {
 db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

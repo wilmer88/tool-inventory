@@ -1,20 +1,15 @@
 $("#chevy-rider").on("submit", function (event) {
   event.preventDefault();
-  const routeName = $("#new-departmentCrewName").val().replace(/\s+/g, "").toLowerCase();
-  const departmentCrew = $("#new-DepartmentCrew").val();
-  const departmentCrewName = $("#new-DepartmentCrewName").val();
-
+  const departmentName = $("#new-name").val();
   const supervisor = $("#new-supervisor ").val();
   const lead = $("#new-lead").val();
-  const id = $("#new-id").val();
-  console.log(id);
 
   $.ajax({
-    url: "/api/departmentCrew",
+    url: "/api/departmentPost",
     method: "post",
     data: {
-      routeName: routeName,
-      departmentCrewName: departmentCrewName,
+
+      name: departmentName,
       supervisor: supervisor,
       lead: lead,
     },
