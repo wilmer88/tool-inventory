@@ -7,8 +7,8 @@
 ## technologys
 Ajax, Handlebars.js, Express, Sequelize, Node, MySQL2, Foundation CSS framework, Heroku, JawsDB, JavaScript
 
-> Documentations is available on requested
-> New images of the new application version will soon be available
+> Documentations is available on requested.
+- New images of the new application version will soon be available
 
 
 [this is the link to the page](https://tool-inventory.herokuapp.com/)
