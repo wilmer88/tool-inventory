@@ -8,7 +8,7 @@
 Ajax, Handlebars.js, Express, Sequelize, Node, MySQL2, Foundation CSS framework, Heroku, JawsDB, JavaScript
 
 
-> New images of the updated version of application comming soon
+> New images of the new application version will soon be available
 
 [this is the link to the page](https://tool-inventory.herokuapp.com/)
 
