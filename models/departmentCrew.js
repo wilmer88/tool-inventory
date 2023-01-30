@@ -2,6 +2,7 @@ const items = require("./items");
 
 module.exports = function (sequelize, DataTypes) {
     const Department= sequelize.define("Department", {
+
       name: {
         primaryKey:true,
         type: DataTypes.STRING,
@@ -12,6 +13,10 @@ module.exports = function (sequelize, DataTypes) {
      lead: {
         type: DataTypes.STRING,
       },
+      routeName: {
+        primaryKey:true,
+        type: DataTypes.STRING,
+      },
  
     });
     Department.associate = function(models) {
@@ -20,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       Department.hasMany(models.Item);
     };
   
-    return Department ;
+    return Department;
   };
 
 

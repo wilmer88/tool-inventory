@@ -22,6 +22,8 @@ app.use(express.json());
 
 // var { engine } = require("express-handlebars");
 //Set Handlebars as the default templating engine. parse request body as json
+
+
 app.engine(
   "handlebars",
   exphbs.engine({
@@ -29,7 +31,9 @@ app.engine(
     handlebars: allowInsecurePrototypeAccess(handlebars),
   })
 );
-app.set("view engine", "handlebars");
+
+
+app.set("view engine","handlebars");
 app.use(express.static("public"));
 
 app.use(itemController);

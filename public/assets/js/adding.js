@@ -1,6 +1,12 @@
+
+
 $("#chevy-rider").on("submit", function (event) {
+
+
   event.preventDefault();
-  const routeName = $("#new-name").val().replace(/\s+/g, "").toLowerCase();
+
+
+  const routeName = $("#new-name").val().replace(/\s+/g, " ").toLowerCase();
   const Department = $("#new-DepartmentName").val();
   const name = $("#new-name").val();
   const placement = $("#new-location").val();
@@ -13,6 +19,7 @@ $("#chevy-rider").on("submit", function (event) {
     url: "/api/item",
     method: "POST",
     data: {
+
       DepartmentName: Department,
       name: name,
       placement: placement,

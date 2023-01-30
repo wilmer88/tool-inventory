@@ -25,6 +25,8 @@
     "handlebars": "^4.7.7",
     "handlebars-form-helpers": "^0.1.4",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.28.0"
+    "sequelize": "^6.28.0",
+    "uuid": "^9.0.0"
   }
+
 }

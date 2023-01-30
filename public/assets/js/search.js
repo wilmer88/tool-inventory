@@ -3,7 +3,7 @@ $("#tax-form").on("submit", function (event) {
   var itemToSearch = $("#g-search").val().trim();
   itemToSearch = itemToSearch.replace(/\\\\s+/g, "").toLowerCase();
   $.ajax({
-    url: `api/item/${itemToSearch}`,
+    url: `/api/item/${itemToSearch}`,
     method: "GET",
     error: function (response) {
       alert("Searched entry not in inventory database");

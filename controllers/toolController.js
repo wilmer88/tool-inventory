@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.get("/allItem", (req, res) => {
+router.get("/allItems", (req, res) => {
   db.Item.findAll()
     .then((allItems) => {
       // console.log(allItems);
@@ -37,6 +37,7 @@ router.get("/item/:id", function (req, res) {
         serial: oneFoundItem.serial,
         count: oneFoundItem.count,
         countedBy: oneFoundItem.countedBy,
+        DepartmentName: oneFoundItem.DepartmentName,
         createdAt: oneFoundItem.createdAt,
       });
     })
@@ -64,6 +65,7 @@ router.get("/item/:id/edit", (req, res) => {
       serial: foundO.serial,
       count: foundO.count,
       countedBy: foundO.countedBy,
+      DepartmentName: foundO.DepartmentName
     });
   }).catch((err) => {
     console.log(err);
@@ -78,21 +80,25 @@ router.get("/item/:id/edit", (req, res) => {
 ////////////////search by routename= name of item////////////////
 
 router.get("/api/item/:routeName?", (req, res) => {
+  console.log(req.params.routeName);
   db.Item.findOne({
     where: {
       routeName: req.params.routeName,
     },
+    include: db.Department
   })
     .then((serchedItem) => {
-      res.render("itemSearch", {
-        id: serchedItem.id,
-        name: serchedItem.name,
-        placement: serchedItem.placement,
-        serial: serchedItem.serial,
-        count: serchedItem.count,
-        countedBy: serchedItem.countedBy,
-        createdAt: serchedItem.createdAt,
-      });
+      res.json(serchedItem);
+      // res.render("itemSearch", {
+      //   id: serchedItem.id,
+      //   name: serchedItem.name,
+      //   placement: serchedItem.placement,
+      //   serial: serchedItem.serial,
+      //   count: serchedItem.count,
+      //   countedBy: serchedItem.countedBy,
+      //   DepartmentName: serchedItem.DepartmentName,
+      //   createdAt: serchedItem.createdAt,
+      // });
     })
     .catch((err) => {
       console.log(err);
