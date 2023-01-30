@@ -22,10 +22,8 @@ router.get("/", (req, res) => {
     });
 });
 
-// router.get("/byDepartment", (req, res) => {
-//   res.render("itemsByDepartment");
-// });
 
+// /////////////////////////////Gets Departmentitems////////////////////////////////////////////////////
 router.get("/byDepartment/:routeName?", (req, res) => {
   console.log(req.params.routeName)
   db.Department.findOne({
@@ -36,17 +34,9 @@ router.get("/byDepartment/:routeName?", (req, res) => {
   
   }).then((itemsByDepartment) => {
     console.log(itemsByDepartment)
-      // res.json(itemsByDepartment.Items);
+
       res.render("itemsByDepartment", { departmentItems: itemsByDepartment.Items, departmentName: itemsByDepartment});
 
-
-
-// router.get("/byDepartment", (req, res) => {
-//   db.Department.findAll({
-//     include: db.Item
-//   }).then((itemsByDepartment) => {
-      // res.json(itemsByDepartment);
-      // res.render("itemsByDepartment", { departmentItems: itemsByDepartment});
     })
     .catch((err) => {
       console.log(err);
@@ -62,9 +52,6 @@ router.get("/byDepartment/:routeName?", (req, res) => {
 
 
 // /////////////////////////////Creat new department////////////////////////////////////////////////////
-
-
-
 
 
 router.post("/api/departmentPost", (req, res) => {
@@ -87,4 +74,38 @@ router.post("/api/departmentPost", (req, res) => {
         });
       });
   });
+
+// /////////////////////////////Route to edit department////////////////////////////////////////////////////
+
+router.get("/foundDepartment/:routeName?", (req, res) => {
+  console.log(req.params.routeName)
+  db.Department.findOne({
+    where: {
+      name: req.params.routeName,
+    },
+  }).then((departmentInfo) => {
+      // res.json(departmentInfo);
+      res.render("departmentItem", {
+        id: departmentInfo.id,
+        name: departmentInfo.name,
+       supervisor: departmentInfo.supervisor,
+        lead: departmentInfo.lead,
+        createdAt: departmentInfo.createdAt,
+      });
+
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to departmnet resource",
+      });
+    });
+});
+
+
+  
+
+
   module.exports = router;

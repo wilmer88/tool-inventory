@@ -88,17 +88,17 @@ router.get("/api/item/:routeName?", (req, res) => {
     include: db.Department
   })
     .then((serchedItem) => {
-      res.json(serchedItem);
-      // res.render("itemSearch", {
-      //   id: serchedItem.id,
-      //   name: serchedItem.name,
-      //   placement: serchedItem.placement,
-      //   serial: serchedItem.serial,
-      //   count: serchedItem.count,
-      //   countedBy: serchedItem.countedBy,
-      //   DepartmentName: serchedItem.DepartmentName,
-      //   createdAt: serchedItem.createdAt,
-      // });
+      // res.json(serchedItem);
+      res.render("itemSearch", {
+        id: serchedItem.id,
+        name: serchedItem.name,
+        placement: serchedItem.placement,
+        serial: serchedItem.serial,
+        count: serchedItem.count,
+        countedBy: serchedItem.countedBy,
+        DepartmentName: serchedItem.DepartmentName,
+        createdAt: serchedItem.createdAt,
+      });
     })
     .catch((err) => {
       console.log(err);

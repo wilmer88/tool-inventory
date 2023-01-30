@@ -5,15 +5,34 @@
 - Allows user to locate item with the application search bar tool. Data can be seperated by department/crew name depending on client needs. Allows user to create, edit, view a single item or department items, view all items, and delete items/ inventory; app saves items and work crew/ department name, all inventory item/ tool serial number, location or description of item,the quantity and save and updated date to the database all manageable thru the app.
 
 ## technologys
-Ajax, Handlebars.js, Express, Sequelize, Node, MySQL2, Foundation CSS framework, Heroku, JawsDB, JavaScript
-
-> Documentations is available on requested.
-- New images of the new application version will soon be available
+- Ajax, Handlebars.js, Express, Sequelize, Node, MySQL2, Foundation CSS framework, Heroku, JawsDB, JavaScript
 
 
-[this is the link to the page](https://tool-inventory.herokuapp.com/)
+> Documentation
+- created server.js file, with the terminal ran npm init -y in the root of project; 
+- in the root ran npm i express, inside the server.js file created a server with middleware and test routes
+```
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/api/config", (req, res) => {
+  res.json({
+    success: true,
+  });
+});
+```
+- created controller folder inside controller folder created .js files with api routes
+-
+
+
+
+
 
 ---
+> New images of the updated application version will soon be available
+
+[this is the link to the page](https://tool-inventory.herokuapp.com/)
 ![screenshot](./public/assets/images/home1.png)
 
 ![screenshot](./public/assets/images/all.png)
