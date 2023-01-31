@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
     Department.associate = function(models) {
       // Associating Author with Posts
       // When an Author is deleted, also delete any associated Posts
-      Department.hasMany(models.Item);
+      Department.hasMany(models.Item,{onDelete: "cascade"});
     };
   
     return Department;

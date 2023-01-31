@@ -4,104 +4,115 @@
   </div>
 </div>
 
-<article class="grid-container">
-  <div
-    class="grid-x grid-margin-x"
-    id="content"
-    data-mutate="f95ynl-sticky"
-    data-events="mutate"
-  >
-    <div class="medium-9 cell">
-      <div class="blog-post">
-        <div class="callout">
-          <h3>Announcement for: <small>2/26/2022</small></h3>
-        </div>
-
-        <p>Ukraine is closing its borders to Russia and Belarus, Ukrainian Prime
-          Minister Denys Shmyhal announced Saturday evening. In a video
-          statement posted on Telegram, Shmyhal said beginning Monday, February
-          28, only Ukrainian citizens will be allowed to cross from Russia and
-          Belarus into Ukraine.
-
-        </p>
-      </div>
-
-      <div class="blog-post">
-        <div id="show-place" class="callout">
-
-          <h3>Fight Fan Lore:<small>Khamzat Chirmaev</small></h3>
-
-        </div>
-
-        <p>Chirmaev- “He has a game that’s why he said he could not come. But
-          he’s going to watch my fight, Chimaev said, per Sportskeeda. “When
-          [Ronaldo] started following me, I wrote to him, he’s the champ. Then
-          he wrote ‘SMESH EVERYBODY’. 100% brother. Then I invited him to my
-          fight. I’m not a big fan of football, but this guy is big. One of the
-          best guys in the world in football. He’s a nice guy.” Chimaev is 4-0
-          in the Octagon since making his UFC debut in 2020 and has quickly
-          become one of the promotion’s fastest-growing stars..</p>
-
-      </div>
-
-      <div class="blog-post">
-        <div class="callout">
-          <div class="card" style="width: 300px;">
-            <div class="card-divider">
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+       
+  <article class="grid-container">
+     <div class="media-object-section">
     <div
-      class="medium-3 cell sticky-container"
-      data-sticky-container=""
-      style="height: 287.125px;"
+      class="grid-x grid-margin-x"
+      id="content"
+      data-mutate="f95ynl-sticky"
+      data-events="mutate"
     >
-      <div
-        class="sticky is-anchored is-at-top"
-        data-sticky=""
-        data-anchor="content"
-        data-resize="f95ynl-sticky"
-        data-mutate="f95ynl-sticky"
-        data-e="apotcy-e"
-        data-events="mutate"
-        style="margin-top: 0px; bottom: auto; top: 0px; max-width: 355px;"
-      >
-        <h4>Department</h4>
-          
-        <ul>
-          {{#each allDepartments}}
-         
-          <li><a href="/byDepartment/{{routeName}}">{{name}}</a></li>
-              {{/each}}
-        </ul>
-     
 
-        <div class="callout secondary">
-          <form id="tax-form">
-            <div class="grid-x">
-              <div class="small-12 cell">
-                <label>Find Your Saved Item
-                  <input
-                    id="g-search"
-                    type="text"
-                    aria-label="input to search"
-                    placeholder="Find Saved Items"
-                  />
-                </label>
+      <div class="medium-9 cell">
 
-                <button id="g-button" type="submit" class="button">Search Now!</button>
+          <div class="blog-post">
+            <div class="callout">
+              <h3>Announcement for: <small>2/26/2022</small></h3>
+            </div>
+
+            <p>Ukraine is closing its borders to Russia and Belarus, Ukrainian
+              Prime Minister Denys Shmyhal announced Saturday evening. In a
+              video statement posted on Telegram, Shmyhal said beginning Monday,
+              February 28, only Ukrainian citizens will be allowed to cross from
+              Russia and Belarus into Ukraine.
+
+            </p>
+          </div>
+
+          <div class="blog-post">
+            <div id="show-place" class="callout">
+
+              <h3>Fight Fan Lore:<small>Khamzat Chirmaev</small></h3>
+
+            </div>
+
+            <p>Chirmaev- “He has a game that’s why he said he could not come.
+              But he’s going to watch my fight, Chimaev said, per Sportskeeda.
+              “When [Ronaldo] started following me, I wrote to him, he’s the
+              champ. Then he wrote ‘SMESH EVERYBODY’. 100% brother. Then I
+              invited him to my fight. I’m not a big fan of football, but this
+              guy is big. One of the best guys in the world in football. He’s a
+              nice guy.” Chimaev is 4-0 in the Octagon since making his UFC
+              debut in 2020 and has quickly become one of the promotion’s
+              fastest-growing stars..</p>
+
+          </div>
+
+          <div class="blog-post">
+            <div class="callout">
+              <div class="card" style="width: 300px;">
+                <div class="card-divider">
+                </div>
               </div>
             </div>
-          </form>
-        </div>
-        <br>
-    
-      </div>
-    </div>
-  </div>
-</article>
-<script src="assets/js/search.js"></script>
+          </div>
 
+      </div>
+
+
+
+      <div
+        class="medium-3 cell sticky-container"
+        data-sticky-container=""
+        style="height: 287.125px;"
+      >
+        <div
+          class="sticky is-anchored is-at-top"
+          data-sticky=""
+          data-anchor="content"
+          data-resize="f95ynl-sticky"
+          data-mutate="f95ynl-sticky"
+          data-e="apotcy-e"
+          data-events="mutate"
+          style="margin-top: 0px; bottom: auto; top: 0px; max-width: 355px;"
+        >
+          <h4>Departments</h4>
+
+          <ul>
+            {{#each allDepartments}}
+
+              <li><a href="/departmentArrayItems/{{routeName}}">{{name}}</a></li>
+            {{/each}}
+          </ul>
+            <div class="media-object-section">
+          <div class="callout secondary">
+            <form id="tax-form">
+              <div class="grid-x">
+                <div class="small-12 cell">
+                  <label>Find Your Saved Item
+                    <input
+                      id="g-search"
+                      type="text"
+                      aria-label="input to search"
+                      placeholder="Find Saved Items"
+                    />
+                  </label>
+
+                  <button id="g-button" type="submit" class="button">Search Now!</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+          <br />
+
+        </div>
+      </div>
+   
+    </div>
+      </div>
+  </article>
+
+
+<script src="assets/js/search.js"></script>

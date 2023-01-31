@@ -1,21 +1,19 @@
-$("#monkey-code").on("submit", function (event) {
+$("#departmentEditForm").on("submit", function (event) {
     event.preventDefault();
-  const name = $("#name-input").val();
-   const placement = $("#placement-input").val();
-  const serial = $("#serial-num").val();
-  const count = $("#exact-count").val();
-  const countedName = $("#counted-by").val();
-  const id = $("#item-id").val();
+    const routeName = $("#new-name").val().replace(/\s+/g, " ").toLowerCase();
+  const name = $("#new-name").val();
+   const supervisor = $("#new-supervisor").val();
+  const lead = $("#new-lead").val();
+
 console.log(id);
 $.ajax({
  url:`/api/item/${id}`,
  method: "PUT",
  data: {
    name: name,
-   placement: placement,
-   serial: serial,
-   count: count,
-   countedBy: countedName
+   supervisor: supervisor,
+   lead: lead,
+  routeName: routeName
  },
 }).then(function () {
 window.location.replace(`/item/${id}`);

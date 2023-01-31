@@ -1,7 +1,7 @@
 <div class="grid-container full">
   <div class="grid-x grid-margin-x">
-    <div class="cell small-3"></div>
-    <div class="cell small-7"><div class="text-center">
+    <div class="cell small-1"></div>
+    <div class="cell small-10"><div class="text-center">
       <br>
       <div class="callout large primary">
           <div class="text-center">
@@ -12,26 +12,29 @@
             <a class="button secondary" href="/">Back</a>
           </div>
         </div>
-    </div></div>
+    </div>
+    </div>
     <div class="cell small-2"></div>
   </div>
 
-<div class="grid-container full">
-  <div class="grid-x grid-margin-x">
+     <div class="grid-container full">
+     <div class="grid-x grid-margin-x">
     <div class="cell small-3"></div>
     <div class="cell small-6"><ul>
     {{#each allItems}}
-<li>
+ <li>
    <h2>{{name}}</h2>
    <h4>Serial/part#:{{serial}}</h4>
-<a class="button tiny" href="/item/{{id}}">View Item</a>
-<a class="button secondary tiny" href="/item/{{id}}/edit">Edit Item</a>
+ <a class="button tiny" href="/item/{{id}}">View Item</a>
+ <a class="button secondary tiny" href="/item/{{id}}/edit">Edit Item</a>
     <hr>
-</li>
+ </li>
     {{/each}}
-</ul> </div>
-    <div class="cell small-3"></div>
+ </ul> </div>
+    <div class="cell small-1"></div>
   </div>
+   </div>
+</div>
 
 
 

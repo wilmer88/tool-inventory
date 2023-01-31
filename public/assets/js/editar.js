@@ -1,5 +1,6 @@
 $("#monkey-code").on("submit", function (event) {
     event.preventDefault();
+    const routeName = $("#name-input").val().replace(/\s+/g, " ").toLowerCase();
   const name = $("#name-input").val();
    const placement = $("#placement-input").val();
   const serial = $("#serial-num").val();
@@ -15,7 +16,8 @@ $.ajax({
    placement: placement,
    serial: serial,
    count: count,
-   countedBy: countedName
+   countedBy: countedName,
+   routeName: routeName
  },
 }).then(function () {
 window.location.replace(`/item/${id}`);

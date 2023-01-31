@@ -1,56 +1,94 @@
+<br />
+<div class="grid-x align-center">
+  <div class="cell small-10">
+    <div class="callout">
+      <h1>Add Inventory</h1>
 
-   <br>
-    <div class="grid-x align-center">
-<div class="cell small-6">
-         <div class="callout">
-             <h1>Add New Item/ Tool</h1>
-               
-<a class="button secondary" href="/">Back</a>
-  
-              </div>
-              <form id="chevy-rider">
-<label>
-     Department:
-     <input type="text" value="{{DepartmentName}}"  id="new-DepartmentName"  aria-label="DepartmentName">
-</label> 
+      <a class="button secondary" href="/">Back</a>
 
-<label>
-   Item Name:
-          <input type="text" value="{{name}}" id="new-name"  aria-label="add tool or item name">
-</label>
+    </div>
+    <form id="chevy-rider">
+      <label>
+
+        <div class="form-group">
+          <label for="category">Select Department:</label>
         
-  
-<label>
-          Item Details/ Location:
-          <input type="text" value="{{placement}}" id="new-location"  aria-label="add location or department">
-</label>        
-        
-   
-<label>
-         Part Number/ Serial-Number:
-          <input type="text" value="{{serial}}" id="new-serial" aria-label="add serial or part number">
-</label>
-      
-   
-<label>
-      Count:
-     <input type="text" value="{{count}}"  id="new-count"  aria-label="add count">
-</label>  
+          <select class="custom-select">
+                <option disabled selected value  value="volvo"> -- select option --</option>
 
-<label>
-      Counted by Name:
-     <input type="text" value="{{countedBy}}"  id="new-countedBy"  aria-label="name of person who counted">
-</label> 
+                    {{#each allDepartments}}
+                <option 
+                 id="new-DepartmentName"
+                 value="{{DepartmentName}}"
+                 aria-label="Department Name Dropdown"> {{name}}
+                 </option>
+              
+               {{/each}}
+          </select>
+            
 
+        </div>
+        {{!-- Department:
+     <input type="text" value="{{DepartmentName}}"  id="new-DepartmentName"  aria-label="DepartmentName"> --}}
+      </label>
 
+      <label>
+        Item Name:
+        <input
+          type="text"
+          value="{{name}}"
+          id="new-name"
+          aria-label="add tool or item name"
+        />
+      </label>
 
-        <input type="hidden" value="{{id}}" id="new-id" >
+      <label>
+        Item Details/ Location:
+        <input
+          type="text"
+          value="{{placement}}"
+          id="new-location"
+          aria-label="add location or department"
+        />
+      </label>
+
+      <label>
+        Part Number/ Serial-Number:
+        <input
+          type="text"
+          value="{{serial}}"
+          id="new-serial"
+          aria-label="add serial or part number"
+        />
+      </label>
+
+      <label>
+        Count:
+        <input
+          type="text"
+          value="{{count}}"
+          id="new-count"
+          aria-label="add count"
+        />
+      </label>
+
+      <label>
+        Counted by Name:
+        <input
+          type="text"
+          value="{{countedBy}}"
+          id="new-countedBy"
+          aria-label="name of person who counted"
+        />
+      </label>
+
+      <input type="hidden" value="{{id}}" id="new-id" />
 
       <button type="submit" class="button success">Add</button>
-     </form>
-    
-    </div>
+    </form>
 
-    </div>
+  </div>
 
- <script src="/assets/js/adding.js"></script>
+</div>
+
+<script src="/assets/js/adding.js"></script>

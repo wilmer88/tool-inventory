@@ -3,7 +3,7 @@
         <div class="cell medium-8">
             <br>
           <div class="blog-post">
-            <h3>Created Date: <small>{{createdAt}}</small></h3>
+            <h4>Created Date: <small>{{createdAt}}</small></h4>
              <br>
                   <a class="button secondary" href="/">Back</a>
              <br>
@@ -57,7 +57,7 @@
       url: `/api/thing/${idToDelete}`,
       method: "DELETE"
     }).then(function (){
-     window.location.replace("/allItem");
+     window.location.replace("/");
      alert("successfully deleted selected item")
     })
   })

@@ -18,8 +18,24 @@ router.get("/allItems", (req, res) => {
     });
 });
 
+// router.get("/item/new", (req, res) => {
+//   res.render("addItems");
+// });
 router.get("/item/new", (req, res) => {
-  res.render("addItems");
+  db.Department.findAll()
+  .then((departments) => {
+    console.log(departments);
+    // res.json(departments)
+    res.render("addItems", { allDepartments: departments });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "unable to retrive allDepartmentCrew",
+    });
+  });
 });
 
 
@@ -114,7 +130,7 @@ router.get("/api/item/:routeName?", (req, res) => {
 ////////////////create new resource//////////////////
 
 router.post("/api/item", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   db.Item.create(req.body)
     .then((newItem) => {

@@ -1,11 +1,11 @@
    <article class="grid-container">
       <div class="grid-x align-center">
-        <div class="cell medium-8">
+        <div class="cell medium-9">
             <br>
           <div class="blog-post">
-            <h3>Created Date: <small>{{createdAt}}</small></h3>
+            <h4>Created Date: <small>{{createdAt}}</small></h4>
              <br>
-                  <a class="button secondary" href="/">Back</a>
+                  <a class="button secondary" href="/departmentArrayItems/{{routeName}}">Back</a>
                  
              <br>
                    <div class="callout">
@@ -23,19 +23,19 @@
             <div class="callout">
               <ul class="menu simple">
                 <li>Edited:{{updatedAt}}</li>
-                <li><input type="hidden" value="{{routeName}}" id="item-id" ></li>
+                {{!-- <li><input type="hidden" value="{{routeName}}" id="item-id" ></li> --}}
              
              </ul>   
             </div>
              <div class="callout">
-             <a class="button expanded" href="/item/{{routeName}}/edit">Edit</a>
+             <a class="button expanded" href="/departmentEditPage/{{routeName}}">Edit</a>
               </div>
                <div class="callout">
            
-             <a class="button secondary expanded" href="/allItem">Back</a>
+             <a class="button secondary expanded" href="/departmentArrayItems/{{routeName}}">Back</a>
               </div>
             
-               <a class="button warning secondary expanded" id="delete" data-id="{{routeName}}">Delete Item</a>   
+               <a class="button warning secondary expanded" id="delete"  data-id="{{routeName}}">Delete Department</a>   
            
               
           </div>
@@ -45,13 +45,20 @@
 
 <script>
   $("#delete").on("click", function (){
-    const routeToDelete = $(this).data("routeName");
+    const confirmDelete = confirm("All items in this department will be deleted do with to continue?")
+    if(confirmDelete){
+      console.log($(this).data("routeName"))
+          const routeToDelete = $(this).data("id");
+
     $.ajax({
-      url: `/api/thing/${routeToDelete}`,
+      url: `/api/deleteDepartment/${routeToDelete}`,
       method: "DELETE"
     }).then(function (){
-     window.location.replace("/allItem");
+     window.location.replace("/");
      alert("successfully deleted selected item")
     })
+
+    }
+
   })
 </script>
