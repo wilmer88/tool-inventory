@@ -32,12 +32,13 @@ app.engine(
   })
 );
 
-
 app.set("view engine","handlebars");
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(itemController);
 app.use(departmentCrewController);
+// app.use(favicon(path.join(__dirname, '/public', 'favicon.ico'))); 
+
 
 app.get("/", (req, res) => {
   res.render("index");
