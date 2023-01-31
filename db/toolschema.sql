@@ -44,4 +44,13 @@ DROP TABLE table_name;
     "password": "jhuzdzpo27pk2jfj",
     "database": "t5rng6ofq8x2hgxg",
     "host": "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"}
+    "dialect": "mysql"},
+
+    
+  "development": {
+    "username": "root",
+    "password": "morter706",
+    "database": "wilmer_database",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
