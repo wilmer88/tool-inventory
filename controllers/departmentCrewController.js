@@ -29,7 +29,7 @@ router.get("/addDepartmentCrew/new", (req, res) => {
 /////////////////////////////// POST Route To Create new department////////////////////////////////////////////////////
 
 router.post("/api/departmentPost", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   db.Department.create(req.body)
     .then((departmentCrew) => {
@@ -51,7 +51,7 @@ router.post("/api/departmentPost", (req, res) => {
 
 // /////////////////////////////Gets Department Array of Items////////////////////////////////////////////////////
 router.get("/departmentArrayItems/:routeName?", (req, res) => {
-  console.log(req.params.routeName);
+  // console.log(req.params.routeName);
   db.Department.findOne({
     where: {
       name: req.params.routeName,
@@ -60,7 +60,7 @@ router.get("/departmentArrayItems/:routeName?", (req, res) => {
     include: db.Item,
   })
     .then((itemsByDepartment) => {
-      console.log(itemsByDepartment);
+      // console.log(itemsByDepartment);
 
       res.render("departmentArrayItems", {
         departmentItems: itemsByDepartment.Items,
@@ -146,7 +146,7 @@ router.put("/api/departmentEdit/:routeName?", (req, res) => {
     },
   })
     .then((updatedDepartment) => {
-      console.log(updatedDepartment);
+      // console.log(updatedDepartment);
       res.end();
     })
     .catch((err) => {

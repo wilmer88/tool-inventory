@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-  
   $("#chevy-rider").on("submit", function (event) {
     event.preventDefault();
     const routeName = $("#new-name").val().replace(/\s+/g, " ").toLowerCase();
@@ -26,7 +25,7 @@ $(document).ready(function() {
         routeName: routeName,
       },
     }).then(function () {
-      window.location.reload();
+      window.location.replace("/");
       alert("successfully created entry on data base");
     });
   });

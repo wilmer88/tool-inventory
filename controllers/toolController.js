@@ -24,7 +24,7 @@ router.get("/allItems", (req, res) => {
 router.get("/item/new", (req, res) => {
   db.Department.findAll()
   .then((departments) => {
-    console.log(departments);
+    // console.log(departments);
     // res.json(departments)
     res.render("addItems", { allDepartments: departments });
   })
@@ -96,7 +96,7 @@ router.get("/item/:id/edit", (req, res) => {
 ////////////////search by routename= name of item////////////////
 
 router.get("/api/item/:routeName?", (req, res) => {
-  console.log(req.params.routeName);
+  // console.log(req.params.routeName);
   db.Item.findOne({
     where: {
       routeName: req.params.routeName,
@@ -159,7 +159,7 @@ router.put("/api/item/:id", (req, res) => {
     },
   })
     .then((updatedItem) => {
-      console.log(updatedItem);
+      // console.log(updatedItem);
       res.end();
     })
     .catch((err) => {
