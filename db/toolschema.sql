@@ -31,20 +31,22 @@ DROP TABLE items;
 
 
 
-DROP DATABASE IF EXISTS t5rng6ofq8x2hgxg;
-CREATE DATABASE t5rng6ofq8x2hgxg;
+DROP DATABASE IF EXISTS l6ebmp3z903muv0s;
+CREATE DATABASE l6ebmp3z903muv0s;
 USE t5rng6ofq8x2hgxg;
 SELECT * FROM Items;
 SELECT * FROM Departments;
 ALTER TABLE Items
-DROP COLUMN DapartmentName;
+DROP DepartmentName;
 DROP TABLE table_name;
- "development": {
-    "username": "azl0lhdmpi1v78e5",
-    "password": "jhuzdzpo27pk2jfj",
-    "database": "t5rng6ofq8x2hgxg",
-    "host": "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"},
+  "development": {
+    "host": "u3r5w4ayhxzdrw87.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "ipg6wljvcepzicls",
+    "password": "ysyfx253jc7xxnum",
+    "port": 3306,
+    "database": "l6ebmp3z903muv0s",
+    "dialect": "mysql"
+  },
 
     
   "development": {

@@ -7,10 +7,10 @@
       <div class="callout large primary">
           <div class="text-center">
             
-            <h1>{{departmentName.name}} Items</h1>
-            <h2 class="subheader">Total Items saved: {{departmentItems.length}}</h2>
+            <h1>{{departmentObj.departmentName}} Items</h1>
+            <h2 class="subheader">Total Items saved: {{departmentObj.Items.length}}</h2>
                  <a class="button secondary" href="/">Back</a> 
-            <a class="button warning" href="/departmentView/{{departmentName.routeName}}"> <strong>View -{{departmentName.name}}</strong> </a>  
+            <a class="button warning" href="/departmentView/{{departmentObj.id}}">View - <strong>{{departmentObj.departmentName}}</strong> </a>  
           </div>
       
         </div>
@@ -22,12 +22,12 @@
         <div class="grid-x grid-margin-x">
         <div class="cell small-3"></div>
         <div class="cell small-6"><ul>
-        {{#each departmentItems}}
+        {{#each departmentObj.Items}}
         <li>
-        <h2>{{name}}</h2>
+        <h2>{{itemName}}</h2>
         <h4>Serial/part#:{{serial}}</h4>
         <a class="button tiny" href="/item/{{id}}">View Item</a>
-        <a class="button secondary tiny" href="/item/{{routeName}}/edit">Edit Item</a>
+        <a class="button secondary tiny" href="/item/{{id}}/edit">Edit Item</a>
         <hr>
         </li>
         {{/each}}

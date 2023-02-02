@@ -4,30 +4,45 @@ module.exports = function (sequelize, DataTypes) {
       id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        primaryKey: false
+        primaryKey: true,
+      
       },
-      name: DataTypes.STRING,
-      placement: DataTypes.STRING,
+
+      itemName: DataTypes.STRING,
+      placement: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        len: [1]
+      },
       serial: DataTypes.STRING,
       count: DataTypes.INTEGER,
       countedBy: DataTypes.STRING,
       routeName: {
-        primaryKey:true,
-        type: DataTypes.STRING,
+      // primaryKey: true,
+      allowNull: false,
+      type: DataTypes.STRING,
+       
       },
+      
       });
-
-      
-  Item.associate = function(models) {
-
-    Item.belongsTo(models.Department, {
-    
-      
-    });
-};
-
+     
+    Item.associate = function(models) {
+     Item.belongsTo(models.Department,{
+      foreignKey:{allowNull: false,
+       }});
+    };
     return Item;
   };
+
+//   {
+//     "DepartmentDepartmentName": "Dig Crew",
+//     "itemName": "hose",
+//     "placement": "trailer",
+//     "serial": 743567,
+//     "count": 20,
+//     "countedBy": "daddypop",
+//     "routeName": "Dig Crew"
+// }
 
 
 

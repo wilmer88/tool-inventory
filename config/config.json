@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "azl0lhdmpi1v78e5",
-    "password": "jhuzdzpo27pk2jfj",
-    "database": "t5rng6ofq8x2hgxg",
-    "host": "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "morter706",
+    "database": "wilmer_database",
+    "host": "localhost",
     "dialect": "mysql"
   },
 

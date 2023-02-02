@@ -1,7 +1,12 @@
 
    <br>
+   <article class="grid-container">
+   <div class="row">
+     <div class="large-6 columns panel" >
     <div class="grid-x align-center">
-<div class="cell small-10">
+    <div class="grid-y align-center">
+
+{{!-- <div class="cell small-10"> --}}
          <div class="callout">
              <h1>Add New Department or Crew</h1>
                 
@@ -11,7 +16,7 @@
               <form id="chevy-rider">
 <label>
    Department:
-          <input type="text" value="{{name}}" id="new-name"  aria-label="add department name">
+          <input type="text" value="{{departmentName}}" id="new-departmentName"  aria-label="add department name">
 </label>
         
   
@@ -23,17 +28,18 @@
    
 <label>
          lead:
-          <input type="text" value="{{ lead}}" id="new-lead" aria-label="add lead">
+          <input type="text" value="{{lead}}" id="new-lead" aria-label="add lead">
 </label>
       
-   
-
-        <input type="hidden" value="{{id}}" id="new-id" >
-
       <button type="submit" class="button success">Add</button>
      </form>
     
     </div>
 
     </div>
-    <script src="/assets/js/departmentCrewAdd.js"></script>
+    </div>
+    </div>
+    </article>
+
+    
+    <script src="/assets/js/departmentAdd.js"></script>

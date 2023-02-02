@@ -3,46 +3,50 @@
         <div class="cell medium-8">
             <br>
           <div class="blog-post">
-            <h4>Created Date: <small>{{createdAt}}</small></h4>
+            <h4>Created Date: <small>{{foundItem.createdAt}}</small></h4>
              <br>
                   <a class="button secondary" href="/">Back</a>
              <br>
                    <div class="callout">
                    
-               <p><strong>name:</strong></p><h3> <bold>{{name}}</bold></h3>
+               <p><strong>Item Name:</strong></p><h3> <bold>{{foundItem.itemName}}</bold></h3>
               </div>
               
              <div class="callout">
-               <p><strong>Location/Description:</strong> </p> <h3><bold>{{placement}}</bold> </h3>
+               <p><strong>Location/Description:</strong> </p> <h3><bold>{{foundItem.placement}}</bold> </h3>
               </div>
              <div class="callout">
-              <p><strong>Serial-Part #:</strong> </p>   <h3>{{serial}} </h3>
+              <p><strong>Serial-Part #:</strong> </p>   <h3>{{foundItem.serial}} </h3>
               </div>
              <div class="callout">
-                <p><strong>Count:</strong>  </p>  <h3>{{count}} </h3>
+                <p><strong>Count:</strong>  </p>  <h3>{{foundItem.count}} </h3>
               </div>
                  <div class="callout">
-                <p><strong> Counted by Name:</strong> </p>  <h3>{{countedBy}} </h3>
+                <p><strong> Counted by Name:</strong> </p>  <h3>{{foundItem.countedBy}} </h3>
               </div>
                <div class="callout">
-                <p><strong> Department: </strong>  </p>  <h3>{{DepartmentName}} </h3>
+                {{!-- <p><strong> Department: </strong>  </p>  <h3>{{}} </h3> --}}
+                <p><strong> Department: </strong>  </p>  <h3>{{foundItem.Department.departmentName}} </h3>
+                <p><strong> Department ID: </strong>  </p>  <h3>{{foundItem.DepartmentId}} </h3>
+
+
               </div>
             <div class="callout">
               <ul class="menu simple">
-                <li>Edited:{{updatedAt}}</li>
-                <li>Database Id: {{id}}</li>
+                <li><strong>Edited</strong>:{{foundItem.updatedAt}}</li>
+                <li><strong>Id</strong> : {{foundItem.id}}</li>
              
              </ul>   
             </div>
              <div class="callout">
-             <a class="button expanded" href="/item/{{id}}/edit">Edit</a>
+             <a class="button expanded" href="/item/{{foundItem.id}}/edit">Edit</a>
               </div>
                <div class="callout">
            
              <a class="button secondary expanded" href="/allItem">Back</a>
               </div>
             
-               <a class="button warning secondary expanded" id="delete" data-id="{{id}}">Delete Item</a>   
+               <a class="button warning secondary expanded" id="delete" data-id="{{foundItem.id}}">Delete Item</a>   
            
               
           </div>

@@ -2,31 +2,13 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.get("/allItems", (req, res) => {
-  db.Item.findAll()
-    .then((allItems) => {
-      // console.log(allItems);
-      res.render("allItems", { allItems: allItems });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "unable to retrive items",
-      });
-    });
-});
+//////////// Gets addItem View Page and querys Department table to display on dropdown options///////////////////////////
 
-// router.get("/item/new", (req, res) => {
-//   res.render("addItems");
-// });
-router.get("/item/new", (req, res) => {
-  db.Department.findAll()
+router.get("/addItemPageAndDepartments", (req, res) => {
+  db.Department.findAll({include: db.Item,})
   .then((departments) => {
-    // console.log(departments);
     // res.json(departments)
-    res.render("addItems", { allDepartments: departments });
+    res.render("addItemPage", {  dropDownOptions: departments});
   })
   .catch((err) => {
     console.log(err);
@@ -39,22 +21,54 @@ router.get("/item/new", (req, res) => {
 });
 
 
+////////////Get Route That Gets All Items and renders Page from Views///////////////////////////
+
+router.get("/allItems", (req, res) => {
+  db.Item.findAll({ 
+
+    include: db.Department
+
+   })
+  .then((allItems) => {
+    // console.log(departments);
+    // res.json(allItems)
+    res.render("allItemsPage", { allItems: allItems, partments: allItems.Department });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "unable to retrive allDepartmentCrew",
+    });
+  });
+});
+
+////////////////// get one item usint the item id/////////////////////////
+
+
 router.get("/item/:id", function (req, res) {
   db.Item.findOne({
     where: {
       id: req.params.id,
     },
+
+    include: db.Department
+
   })
     .then((oneFoundItem) => {
+      // res.json(oneFoundItem);
       res.render("foundItem", {
-        id: oneFoundItem.id,
-        name: oneFoundItem.name,
-        placement: oneFoundItem.placement,
-        serial: oneFoundItem.serial,
-        count: oneFoundItem.count,
-        countedBy: oneFoundItem.countedBy,
-        DepartmentName: oneFoundItem.DepartmentName,
-        createdAt: oneFoundItem.createdAt,
+        foundItem: oneFoundItem
+        // id: oneFoundItem.id,
+        // itemName: oneFoundItem.itemName,
+        // placement: oneFoundItem.placement,
+        // serial: oneFoundItem.serial,
+        // count: oneFoundItem.count,
+        // countedBy: oneFoundItem.countedBy,
+        // Department: oneFoundItem.Department,
+        // DepartmentId: oneFoundItem.DepartmentId,
+        // createdAt: oneFoundItem.createdAt,
       });
     })
     .catch((err) => {
@@ -70,13 +84,18 @@ router.get("/item/:id", function (req, res) {
 router.get("/item/:id/edit", (req, res) => {
   db.Item.findOne({
     where: {
+
       id: req.params.id,
+
     },
+
+    include: db.Department
+
   }).then((foundO) => {
     console.log(foundO);
     res.render("editItem", {
       id: foundO.id,
-      name: foundO.name,
+      itemName: foundO.itemName,
       placement: foundO.placement,
       serial: foundO.serial,
       count: foundO.count,
@@ -101,13 +120,15 @@ router.get("/api/item/:routeName?", (req, res) => {
     where: {
       routeName: req.params.routeName,
     },
+
     include: db.Department
+
   })
     .then((serchedItem) => {
       // res.json(serchedItem);
       res.render("itemSearch", {
         id: serchedItem.id,
-        name: serchedItem.name,
+        itemName: serchedItem.itemName,
         placement: serchedItem.placement,
         serial: serchedItem.serial,
         count: serchedItem.count,
@@ -127,9 +148,9 @@ router.get("/api/item/:routeName?", (req, res) => {
 });
 
 
-////////////////create new resource//////////////////
+//////////////// create new resource/ item //////////////////
 
-router.post("/api/item", (req, res) => {
+router.post("/api/postItem", (req, res) => {
   // console.log(req.body);
 
   db.Item.create(req.body)

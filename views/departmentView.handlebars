@@ -1,43 +1,46 @@
    <article class="grid-container">
+   <div class="grid-y align-center">
       <div class="grid-x align-center">
+      
         <div class="cell medium-9">
-            <br>
+          
           <div class="blog-post">
-            <h4>Created Date: <small>{{createdAt}}</small></h4>
+            <h4>Created Date: <small>{{departmentView.createdAt}}</small></h4>
              <br>
-                  <a class="button secondary" href="/departmentArrayItems/{{routeName}}">Back</a>
+                  <a class="button secondary" href="/departmentArrayItems/{{departmentView.id}}">Back</a>
                  
              <br>
                    <div class="callout">
                    
-               <p><strong>Department/ Crew:</strong></p><h3> <bold>{{name}}</bold></h3>
+               <p><strong>Department/ Crew:</strong></p><h3> <bold>{{departmentView.departmentName}}</bold></h3>
               </div>
               
              <div class="callout">
-               <p><strong>Supervisor/ Manager:</strong> </p> <h3><bold>{{supervisor}}</bold> </h3>
+               <p><strong>Supervisor/ Manager:</strong> </p> <h3><bold>{{departmentView.supervisor}}</bold> </h3>
               </div>
              <div class="callout">
-              <p><strong>Lead/ Spotter:</strong> </p>   <h3>{{lead}} </h3>
+              <p><strong>Lead/ Spotter:</strong> </p>   <h3>{{departmentView.lead}} </h3>
               </div>
 
             <div class="callout">
               <ul class="menu simple">
-                <li>Edited:{{updatedAt}}</li>
+                <li> <strong>Edited: </strong>{{departmentView.updatedAt}}</li>
                 {{!-- <li><input type="hidden" value="{{routeName}}" id="item-id" ></li> --}}
              
              </ul>   
             </div>
              <div class="callout">
-             <a class="button expanded" href="/departmentEditPage/{{routeName}}">Edit</a>
+             <a class="button expanded" href="/departmentEditPage/{{departmentView.id}}">Edit</a>
               </div>
                <div class="callout">
            
-             <a class="button secondary expanded" href="/departmentArrayItems/{{routeName}}">Back</a>
+             <a class="button secondary expanded" href="/departmentArrayItems/{{departmentView.id}}">Back</a>
               </div>
             
-               <a class="button warning secondary expanded" id="delete"  data-id="{{routeName}}">Delete Department</a>   
+               <a class="button warning secondary expanded" id="delete"  data-id="{{departmentView.id}}">Delete Department</a>   
            
               
+          </div>
           </div>
         </div>
       </div>
@@ -47,7 +50,7 @@
   $("#delete").on("click", function (){
     const confirmDelete = confirm("All items in this department will be deleted do with to continue?")
     if(confirmDelete){
-      console.log($(this).data("routeName"))
+      console.log("ajax call log is: " + $(this).data("id"))
           const routeToDelete = $(this).data("id");
 
     $.ajax({

@@ -13,31 +13,32 @@
         <div class="form-group">
           <label for="category">Select Department:</label>
         
-          <select class="custom-select">
+                <select class="custom-select">
                 <option disabled selected value  value="volvo"> -- select option --</option>
 
-                    {{#each allDepartments}}
+                    {{#each dropDownOptions}}
                 <option 
-                 id="new-DepartmentName"
-                 value="{{DepartmentName}}"
-                 aria-label="Department Name Dropdown"> {{name}}
+                 id="departmentId"
+                 value="{{id}}"
+                 aria-label="Department Name Dropdown"> {{departmentName}}
                  </option>
               
                {{/each}}
           </select>
-            
-
         </div>
-        {{!-- Department:
-     <input type="text" value="{{DepartmentName}}"  id="new-DepartmentName"  aria-label="DepartmentName"> --}}
-      </label>
+
+
+         {{!-- <label>
+        Department:
+     <input type="text" value="{{DepartmentName}}"  id="new-DepartmentName"  aria-label="DepartmentName">
+      </label> --}}
 
       <label>
         Item Name:
         <input
           type="text"
-          value="{{name}}"
-          id="new-name"
+          value="{{itemName}}"
+          id="new-itemName"
           aria-label="add tool or item name"
         />
       </label>
@@ -82,7 +83,7 @@
         />
       </label>
 
-      <input type="hidden" value="{{id}}" id="new-id" />
+      <input type="hidden" />
 
       <button type="submit" class="button success">Add</button>
     </form>
@@ -91,4 +92,4 @@
 
 </div>
 
-<script src="/assets/js/adding.js"></script>
+<script src="/assets/js/addItem.js"></script>

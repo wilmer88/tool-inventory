@@ -1,28 +1,25 @@
 $("#departmentEditForm").on("submit", function (event) {
-    event.preventDefault();
-    const routeName = $("#new-name").val().replace(/\s+/g, " ").toLowerCase();
-  const name = $("#new-name").val();
-   const supervisor = $("#new-supervisor").val();
+  event.preventDefault();
+  const departmentName = $("#new-departmentName").val();
+  const supervisor = $("#new-supervisor").val();
   const lead = $("#new-lead").val();
+  const departmentId = $("#department-id").val();
+  const routeName = $("#new-departmentName").val();
+  console.log(departmentId)
+    .val()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
 
-console.log(id);
-$.ajax({
- url:`/api/item/${id}`,
- method: "PUT",
- data: {
-   name: name,
-   supervisor: supervisor,
-   lead: lead,
-  routeName: routeName
- },
-}).then(function () {
-window.location.replace(`/item/${id}`);
-}).catch(err => {
- console.log(err)
-  res.status(500).json({
-      error: true,
-      data: null,
-      message: "faild to update item",
-    });
-})
-})
+  $.ajax({
+    url: `/api/departmentEdit/${departmentId}`,
+    method: "PUT",
+    data: {
+      departmentName: departmentName,
+      supervisor: supervisor,
+      lead: lead,
+      routeName: routeName,
+    },
+  }).then(function () {
+    window.location.replace(`/departmentView/${departmentId}`);
+  });
+});

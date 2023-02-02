@@ -1,10 +1,12 @@
+
+
 $("#chevy-rider").on("submit", function (event) {
 
 
   event.preventDefault();
 
-  const routeName = $("#new-name").val().replace(/\s+/g, " ").toLowerCase();
-  const departmentName = $("#new-name").val();
+  const routeName = $("#new-departmentName").val().replace(/\s+/g, " ").toLowerCase();
+  const departmentName = $("#new-departmentName").val();
   const supervisor = $("#new-supervisor ").val();
   const lead = $("#new-lead").val();
 
@@ -12,16 +14,15 @@ $("#chevy-rider").on("submit", function (event) {
     url: "/api/departmentPost",
     method: "post",
     data: {
-      name: departmentName,
+      departmentName: departmentName,
       supervisor: supervisor,
       lead: lead,
       routeName: routeName,
     },
-  }).then(function () {
-    window.location.reload();
+  }).then(function (departmetDB) {
+    console.log(departmetDB)
+    window.location.replace("/");
     alert("successfully created entry to departmentCrew table");
   });
-
-
   
 });

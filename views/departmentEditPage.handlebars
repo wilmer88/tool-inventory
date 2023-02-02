@@ -9,24 +9,34 @@
               </div>
         <div class="cell medium-8">
          <form id="departmentEditForm">
+
+<label>
+  department:id
+  <input type="hiden" value="{{departmentToEditInfo.id}}" id="department-id" aria-label="input for the name of department" >
+</label>
            
 <label>
  Department Name:
-<input type="text" value="{{name}}" id="new-name" aria-label="input for the name of department">  
-
+<input type="text" value="{{departmentToEditInfo.departmentName}}" id="new-departmentName" aria-label="input for the name of department">  
 </label>
-Supervisor:
-    <input type="text" value="{{supervisor}}" id="new-supervisor" aria-label="input for the name of supervisor"> 
+
 <label>
-
-
+  Supervisor:
+    <input type="text" value="{{departmentToEditInfo.supervisor}}" id="new-supervisor" aria-label="input for the name of supervisor"> 
 </label>
-Lead:
-<input type="text" value="{{lead}}" id="new-lead" aria-label="input for department lead">
-<label>
 
-{{!-- <input type="hidden" value="{{id}}" id="item-id" > --}}
-</label>        
+
+
+
+<label>
+  Lead:
+<input type="text" value="{{departmentToEditInfo.lead}}" id="new-lead" aria-label="input for department lead">
+</label>
+
+
+
+
+       
                
    <button type="submit" class="button">update</button>
         </form>

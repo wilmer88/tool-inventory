@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-/////////////////////////////// Get Route To All Department Rows/ Resources ////////////////////////////////////////////////////
+/////////////////////////////// Get Route To All Department Rows/ Resources /////////////////////////////////////////////
 
 router.get("/", (req, res) => {
-  db.Department.findAll()
+  // db.Department.findAll({include: "items"})
+  db.Department.findAll({include: db.Item})
     .then((departments) => {
-      // res.json(departments)
+      // res.json(departments);
       res.render("index", { allDepartments: departments });
     })
     .catch((err) => {
@@ -22,15 +23,14 @@ router.get("/", (req, res) => {
 
 ///////////////////////////////  Create Department Page Get Route   ////////////////////////////////////////////////////
 
-router.get("/addDepartmentCrew/new", (req, res) => {
-  res.render("addDepartmentCrew");
+router.get("/addDepartmentPage/new", (req, res) => {
+  res.render("addDepartmentPage");
 });
 
 /////////////////////////////// POST Route To Create new department////////////////////////////////////////////////////
 
 router.post("/api/departmentPost", (req, res) => {
   // console.log(req.body);
-
   db.Department.create(req.body)
     .then((departmentCrew) => {
       res.json({
@@ -50,21 +50,20 @@ router.post("/api/departmentPost", (req, res) => {
 });
 
 // /////////////////////////////Gets Department Array of Items////////////////////////////////////////////////////
-router.get("/departmentArrayItems/:routeName?", (req, res) => {
+router.get("/departmentArrayItems/:id", (req, res) => {
   // console.log(req.params.routeName);
   db.Department.findOne({
     where: {
-      name: req.params.routeName,
+      id: req.params.id,
     },
 
     include: db.Item,
   })
     .then((itemsByDepartment) => {
       // console.log(itemsByDepartment);
-
-      res.render("departmentArrayItems", {
-        departmentItems: itemsByDepartment.Items,
-        departmentName: itemsByDepartment,
+      res.render("departmentArrayItems", {  
+        departmentObj: itemsByDepartment,
+        // departmentItems: itemsByDepartment.Items,
       });
     })
     .catch((err) => {
@@ -79,22 +78,23 @@ router.get("/departmentArrayItems/:routeName?", (req, res) => {
 
 // /////////////////////////////Route to view department////////////////////////////////////////////////////
 
-router.get("/departmentView/:routeName?", (req, res) => {
+router.get("/departmentView/:id", (req, res) => {
   // console.log(req.params.routeName)
   db.Department.findOne({
     where: {
-      name: req.params.routeName,
+      id: req.params.id,
     },
+    include: db.Item
   })
     .then((departmentInfo) => {
       // res.json(departmentInfo);
       res.render("departmentView", {
-        id: departmentInfo.id,
-        name: departmentInfo.name,
-        supervisor: departmentInfo.supervisor,
-        lead: departmentInfo.lead,
-        createdAt: departmentInfo.createdAt,
-        routeName: departmentInfo.routeName,
+        departmentView: departmentInfo,
+        // departmentName: departmentInfo.departmentName,
+        // supervisor: departmentInfo.supervisor,
+        // lead: departmentInfo.lead,
+        // createdAt: departmentInfo.createdAt,
+        // routeName: departmentInfo.routeName,
       });
     })
     .catch((err) => {
@@ -109,22 +109,23 @@ router.get("/departmentView/:routeName?", (req, res) => {
 
 ///////////////////////////////Route to view Department Edit Page////////////////////////////////////////////////////
 
-router.get("/departmentEditPage/:routeName?", (req, res) => {
+router.get("/departmentEditPage/:id", (req, res) => {
   // console.log(req.params.routeName)
   db.Department.findOne({
     where: {
-      routeName: req.params.routeName,
+      id: req.params.id,
     },
   })
     .then((departmentInfo) => {
       // res.json(departmentInfo);
       res.render("departmentEditPage", {
-        id: departmentInfo.id,
-        name: departmentInfo.name,
-        supervisor: departmentInfo.supervisor,
-        lead: departmentInfo.lead,
-        createdAt: departmentInfo.createdAt,
-        routeName: departmentInfo.routeName,
+        departmentToEditInfo: departmentInfo
+        // id: departmentInfo.id,
+        // departmentName: departmentInfo.departmentName,
+        // supervisor: departmentInfo.supervisor,
+        // lead: departmentInfo.lead,
+        // createdAt: departmentInfo.createdAt,
+        // routeName: departmentInfo.routeName,
       });
     })
     .catch((err) => {
@@ -139,10 +140,10 @@ router.get("/departmentEditPage/:routeName?", (req, res) => {
 
 /////////////////////////////// PUT Route to Edit Deparment Resource ////////////////////////////////////////////////////
 
-router.put("/api/departmentEdit/:routeName?", (req, res) => {
+router.put("/api/departmentEdit/:id", (req, res) => {
   db.Department.update(req.body, {
     where: {
-      routeName: req.params.routeName,
+      id: req.params.id,
     },
   })
     .then((updatedDepartment) => {
@@ -159,9 +160,9 @@ router.put("/api/departmentEdit/:routeName?", (req, res) => {
     });
 });
 
-router.delete("/api/deleteDepartment/:routeName?", (req, res) => {
+router.delete("/api/deleteDepartment/:id", (req, res) => {
   db.Department.destroy({
-    where: { routeName: req.params.routeName },
+    where: { id: req.params.id },
   }).then((result) => {
     res.end();
   })

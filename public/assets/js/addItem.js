@@ -2,27 +2,25 @@ $(document).ready(function() {
 
   $("#chevy-rider").on("submit", function (event) {
     event.preventDefault();
-    const routeName = $("#new-name").val().replace(/\s+/g, " ").toLowerCase();
-    const Department = $("#new-DepartmentName").val();
-    const name = $("#new-name").val();
+    const routeName = $("#new-itemName").val().replace(/\s+/g, " ").toLowerCase();
+    const id = $("#departmentId").val();
+    const ItemName = $("#new-itemName").val();
     const placement = $("#new-location").val();
     const serial = $("#new-serial").val();
     const count = $("#new-count").val();
-    const countedName = $("#new-countedBy").val();
-    const id = $("#new-id").val();
-    console.log(id);
+    const countedBy = $("#new-countedBy").val();
+  
     $.ajax({
-      url: "/api/item",
+      url: "/api/postItem",
       method: "POST",
       data: {
-  
-        DepartmentName: Department,
-        name: name,
+        DepartmentId: id,
+        itemName: ItemName,
         placement: placement,
         serial: serial,
         count: count,
-        countedBy: countedName,
-        routeName: routeName,
+        countedBy: countedBy,
+        routeName: routeName,      
       },
     }).then(function () {
       window.location.replace("/");
