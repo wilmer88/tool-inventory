@@ -20,6 +20,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js">
   </script>
+  <link rel="stylesheet" href="/public/assets/css/logo.css">
 
 </head>
 
@@ -33,29 +34,56 @@
 
         <li class=""><a href="/">Home/Search</a></li>
         <li class=""><a href="/addItemPageAndDepartments">Create Item</a></li>
-
         <li class=""><a href="/allItems">All Items</a></li>
+        <li class=""><a href="/allDepartments">All Departments</a></li>
+
         <li class=""><a href="/addDepartmentPage/new">New Department</a></li>
-
-
 
       </ul>
     </div>
   </div>
 
-  {{{body}}}
+
+
+  <div id="container">
+    {{{body}}}
+    <div class="small-12 columns">
+      <ul class="menu align-center">
+        <li class=""><a href="/"><img id="coatlogo" src="/assets/images/coat.jpg" alt="Italian Trulli" alt="" width="60"
+              height="30"></a></li>
+      </ul>
+    </div>
+
+    <footer id="footer">
+      <div class="small-12 columns">
+        <nav aria-label="You are here:" role="navigation">
+          <div class="breadcrumbs">
+
+            <ul class="menu align-center">
+              <li class=""><a href="/">Home/Search</a></li>
+              <li class=""><a href="/addItemPageAndDepartments">Create Item</a></li>
+              <li class=""><a href="/allItems">All Items</a></li>
+              <li class=""><a href="/allDepartments">All Departments</a></li>
+              <li class=""><a href="/addDepartmentPage/new">New Department</a></li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </div>
 
 
 
+  <script src="assets/js/"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+    crossorigin="anonymous"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
-        crossorigin="anonymous"></script>
-
-      <script>
-        $(document).foundation();
-      </script>
+  <script>
+    $(document).foundation();
+  </script>
 
 
 

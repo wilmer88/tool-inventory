@@ -13,9 +13,6 @@ VALUES (UUID(),"nosile", "150",now(),now() );
 INSERT INTO DepartmentCrew
 VALUES (UUID(),"Welding","Montana","Miklo","Welding",now(),now() );
 
-
-
-
 DELETE FROM tools WHERE "id" = "1";
 INSERT INTO tools
 VALUES (UUID(),"torque drill", "assembly",now(),now() );

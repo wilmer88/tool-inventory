@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-/////////////////////////////// Get Route To All Department Rows/ Resources /////////////////////////////////////////////
+/////////////////////////////// Gets Route To All Department Rows/ Resources /////////////////////////////////////////////
 
 router.get("/", (req, res) => {
   // db.Department.findAll({include: "items"})
@@ -10,6 +10,23 @@ router.get("/", (req, res) => {
     .then((departments) => {
       // res.json(departments);
       res.render("index", { allDepartments: departments });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to retrive allDepartmentCrew",
+      });
+    });
+});
+
+router.get("/allDepartments", (req, res) => {
+  // db.Department.findAll({include: "items"})
+  db.Department.findAll()
+    .then((departments) => {
+      // res.json(departments);
+      res.render("allDepartments", { allDepartments: departments });
     })
     .catch((err) => {
       console.log(err);

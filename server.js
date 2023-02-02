@@ -14,8 +14,6 @@ const {allowInsecurePrototypeAccess} = require("@handlebars/allow-prototype-acce
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080;
 
-
-
 //middle ware for posting
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,8 +23,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 //Set Handlebars as the default templating engine. parse request body as json
-
-
 app.engine(
   "handlebars",
   exphbs.engine({
@@ -37,19 +33,12 @@ app.engine(
 
 app.set("view engine","handlebars");
 
-
-
 app.use(itemController);
 app.use(departmentCrewController);
-
-
-
 
 // app.get("/", (req, res) => {
 //   res.render("index");
 // });
-
-
 
 app.get("/api/config", (req, res) => {
   res.json({

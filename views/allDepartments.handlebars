@@ -1,0 +1,38 @@
+<div class="grid-container full">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-1"></div>
+    <div class="cell small-10"><div class="text-center">
+      <br>
+      <div class="callout large primary">
+          <div class="text-center">
+            <h1>ALL</h1>
+            <h1>Departments</h1>
+            <h2 class="subheader">Total Departments Saved: {{allDepartments.length}}</h2>
+            <hr>
+            <a class="button secondary" href="/">Back</a>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="cell small-2"></div>
+  </div>
+
+     <div class="grid-container full">
+     <div class="grid-x grid-margin-x">
+    <div class="cell small-3"></div>
+    <div class="cell small-6"><ul>
+    {{#each allDepartments}}
+ <li>
+   <h2>{{departmentName}}</h2>
+   <h4>Supervisor:{{supervisor}}</h4>
+   <h4>Lead:{{lead}}</h4>
+ <a class="button tiny" href="/departmentView/{{id}}">View Department</a>
+ <a class="button secondary tiny" href="/departmentEditPage/{{id}}">Edit Department</a>
+    <hr>
+ </li>
+    {{/each}}
+ </ul> </div>
+    <div class="cell small-1"></div>
+  </div>
+   </div>
+</div>
