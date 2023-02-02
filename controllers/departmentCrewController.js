@@ -25,6 +25,7 @@ router.get("/", (req, res) => {
 
 router.get("/addDepartmentPage/new", (req, res) => {
   res.render("addDepartmentPage");
+
 });
 
 /////////////////////////////// POST Route To Create new department////////////////////////////////////////////////////

@@ -4,12 +4,7 @@ $("#departmentEditForm").on("submit", function (event) {
   const supervisor = $("#new-supervisor").val();
   const lead = $("#new-lead").val();
   const departmentId = $("#department-id").val();
-  const routeName = $("#new-departmentName").val();
-  console.log(departmentId)
-    .val()
-    .replace(/\s+/g, " ")
-    .toLowerCase();
-
+  const routeName = $("#new-departmentName").val().replace(/\s+/g, " ").toLowerCase();
   $.ajax({
     url: `/api/departmentEdit/${departmentId}`,
     method: "PUT",

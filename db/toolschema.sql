@@ -28,6 +28,7 @@ SELECT * FROM Departments;
 ALTER TABLE Items
 DROP COLUMN DapartmentName;
 DROP TABLE items;
+DROP TABLE departments;
 
 
 
