@@ -22,7 +22,7 @@ $("#chevy-rider").on("submit", function (event) {
   }).then(function (departmetDB) {
     console.log(departmetDB)
     window.location.replace("/");
-    alert("successfully created entry to departmentCrew table");
+    alert("successfully created entry for departments");
   });
   
 });

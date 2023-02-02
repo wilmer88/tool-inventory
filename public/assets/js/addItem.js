@@ -24,7 +24,7 @@ $(document).ready(function() {
       },
     }).then(function () {
       window.location.replace("/");
-      alert("successfully created entry on data base");
+      alert("Successfully added entry to the department.");
     });
   });
 
