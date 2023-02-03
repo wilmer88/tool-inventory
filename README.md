@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
     });
 });
 ```
-- Bellow code calls `department`  database table and renders them to the allDepartments.handlebars file/ "All Departments page" in the navbar
+- Bellow route calls `department`  database table and renders them to the allDepartments.handlebars file/ "All Departments page" in the navbar
 ```
 router.get("/allDepartments", (req, res) => {
   // db.Department.findAll({include: "items"})
@@ -50,7 +50,7 @@ router.get("/allDepartments", (req, res) => {
 });
 
 ```
-- code bellow renders the `views/allDepartment page`/ "All Departments page" on the navbar
+- code route renders the `views/allDepartment page`/ "All Departments page" on the navbar
 ```
 router.get("/addDepartmentPage/new", (req, res) => {
   res.render("addDepartmentPage");
