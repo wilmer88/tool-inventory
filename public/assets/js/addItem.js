@@ -1,9 +1,9 @@
-$(document).ready(function() {
-
   $("#chevy-rider").on("submit", function (event) {
     event.preventDefault();
-    const routeName = $("#new-itemName").val().replace(/\s+/g, " ").toLowerCase();
     const id = $("#departmentId").val();
+    const routeName = $("#new-itemName").val().replace(/\s+/g, " ").toLowerCase();
+
+    console.log(id);
     const ItemName = $("#new-itemName").val();
     const placement = $("#new-location").val();
     const serial = $("#new-serial").val();
@@ -23,13 +23,9 @@ $(document).ready(function() {
         routeName: routeName,      
       },
     }).then(function () {
-      window.location.replace("/");
+      // window.location.replace("/");
       alert("Successfully added entry to the department.");
     });
   });
 
-
-
-
-});
 

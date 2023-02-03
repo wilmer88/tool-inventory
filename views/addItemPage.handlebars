@@ -13,16 +13,14 @@
         <div class="form-group">
           <label for="category">Select Department:</label>
         
-                <select class="custom-select">
+                <select id="departmentId" class="custom-select">
                 <option disabled selected value  value="volvo"> -- select option --</option>
 
                     {{#each dropDownOptions}}
                 <option 
-                 id="departmentId"
                  value="{{id}}"
-                 aria-label="Department Name Dropdown"> {{departmentName}}
-                 </option>
-              
+                 aria-label="Department Name Dropdown"> {{id}}{{departmentName}}
+                 </option>        
                {{/each}}
           </select>
         </div>

@@ -5,10 +5,10 @@ const db = require("../models");
 //////////// Gets addItem View Page and querys Department table to display on dropdown options///////////////////////////
 
 router.get("/addItemPageAndDepartments", (req, res) => {
-  db.Department.findAll({include: db.Item,})
-  .then((departments) => {
-    // res.json(departments)
-    res.render("addItemPage", {  dropDownOptions: departments});
+  db.Department.findAll()
+  .then((departmentsDB) => {
+    // res.json(departmentsDB)
+    res.render("addItemPage", {dropDownOptions: departmentsDB});
   })
   .catch((err) => {
     console.log(err);
@@ -151,7 +151,7 @@ router.get("/api/item/:routeName?", (req, res) => {
 //////////////// create new resource/ item //////////////////
 
 router.post("/api/postItem", (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
 
   db.Item.create(req.body)
     .then((newItem) => {
