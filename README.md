@@ -13,7 +13,7 @@
 # Documentation
 > ## controllers\departmentCrewController.js 
 
-- Route bellow calls database and and renders the `views/index.handlebars file/ Home search Page `  and appends them to ` #each <ul>` tag.
+- Route bellow calls all `department ` department table resources on the database and and renders them `views/index.handlebars file/ Home search Page `  and are appended to ` #each <ul>` tags.
 ```
 router.get("/", (req, res) => {
   db.Department.findAll({include: db.Item})
@@ -73,7 +73,7 @@ router.get("/addDepartmentPage/new", (req, res) => {
 ![screenshot](./public/assets/images/edit.png)
 ![screenshot](./public/assets/images/add.png)
 ---
-> begine from scratch
+> ### Starting from scratch
 - create server.js file in the the root repository, run npm ` init -y ` in the root of project; 
 - in the root run ` npm i express ` inside the server.js file
 - created a server with middleware and test routes
