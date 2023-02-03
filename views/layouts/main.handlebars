@@ -20,7 +20,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js">
   </script>
-  <link rel="stylesheet" href="/public/assets/css/logo.css">
+
 
 </head>
 
@@ -45,8 +45,14 @@
 
 
 
-  <div id="container">
-    {{{body}}}
+  <main id="mainContent" style=" min-height: 100vh; display:flex; flex-direction:column; ">
+{{{body}}}
+  </main>
+    
+
+
+
+    <div id="container">
     <div class="small-12 columns">
       <ul class="menu align-center">
         <li class=""><a href="/"><img id="coatlogo" src="/assets/images/coat.jpg" alt="Italian Trulli" alt="" width="60"
@@ -54,7 +60,7 @@
       </ul>
     </div>
 
-    <footer id="footer">
+    <footer id="footer" style="margin-top: auto;">
       <div class="small-12 columns">
         <nav aria-label="You are here:" role="navigation">
           <div class="breadcrumbs">
@@ -70,12 +76,12 @@
           </div>
         </nav>
       </div>
+    <hr>
     </footer>
+
   </div>
 
 
-
-  <script src="assets/js/"></script>
   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
