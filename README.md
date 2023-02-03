@@ -9,8 +9,7 @@
 
 
 > Documentation
-- created server.js file, with the terminal ran npm init -y in the root of project; 
-- in the root ran npm i express, inside the server.js file created a server with middleware and test routes
+
 ```
 app.get("/", (req, res) => {
   res.render("index");
@@ -39,5 +38,9 @@ app.get("/api/config", (req, res) => {
 ![screenshot](./public/assets/images/edit.png)
 ![screenshot](./public/assets/images/add.png)
 ---
+> begine from scratch
+- create server.js file in the the root repository, run npm ` init -y ` in the root of project; 
+- in the root run ` npm i express ` inside the server.js file
+- created a server with middleware and test routes
 
 
