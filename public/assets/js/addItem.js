@@ -23,7 +23,7 @@
         routeName: routeName,      
       },
     }).then(function () {
-      // window.location.replace("/");
+      window.location.replace("/");
       alert("Successfully added entry to the department.");
     });
   });
