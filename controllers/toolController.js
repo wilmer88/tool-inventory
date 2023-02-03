@@ -31,7 +31,7 @@ router.get("/allItems", (req, res) => {
    })
   .then((allItems) => {
     // console.log(departments);
-    // res.json(allItems)
+    // res.json(allItems);
     res.render("allItemsPage", { allItems: allItems, partments: allItems.Department });
   })
   .catch((err) => {
