@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to retrive allDepartmentCrew",
+        message: "unable to retrive allDepartments",
       });
     });
 });
@@ -38,11 +38,10 @@ router.get("/allDepartments", (req, res) => {
     });
 });
 
-///////////////////////////////  Create Department Page Get Route   ////////////////////////////////////////////////////
+///////////////////////////////  "Create Department" Page Route   ////////////////////////////////////////////////////
 
 router.get("/addDepartmentPage/new", (req, res) => {
   res.render("addDepartmentPage");
-
 });
 
 /////////////////////////////// POST Route To Create new department////////////////////////////////////////////////////
