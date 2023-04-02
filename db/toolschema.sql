@@ -54,3 +54,11 @@ DROP TABLE table_name;
     "host": "localhost",
     "dialect": "mysql"
   },
+    "development": {
+    "host": "tvcpw8tpu4jvgnnq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "azecvqzf8b28x2tl",
+    "password": "bsvv3uryvad1yyhh",
+    "port": 3306,
+    "database": "io3jg0udc93sepze",
+    "dialect": "mysql"
+  },
