@@ -3,6 +3,18 @@
 ## controles 
 
 
+```
+{ 
+  id:,
+  personName: "",
+  personPosition: "",
+  personDepaertement:"",
+  personPassword:"",
+  possesion:
+}
+```
+
+
 
  by department/crew name depending on client needs. Allows user to create, edit, view a single item or department items, view all items, and delete items/ inventory; app saves items and work crew/ department name, all inventory item/ tool serial number, location or description of item,the quantity and save and updated date to the database all manageable thru the app.
 

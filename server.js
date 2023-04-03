@@ -9,6 +9,7 @@ const app = express();
 const db = require("./models");
 const itemController = require("./controllers/toolController.js");
 const departmentCrewController = require("./controllers/departmentCrewController.js");
+const usarioController = require("./controllers/departmentCrewController.js");
 const handlebars = require("handlebars");
 const {allowInsecurePrototypeAccess} = require("@handlebars/allow-prototype-access");
 // process.env.PORT lets the port be set by Heroku
@@ -35,6 +36,8 @@ app.set("view engine","handlebars");
 
 app.use(itemController);
 app.use(departmentCrewController);
+app.use(usarioController);
+
 
 // app.get("/", (req, res) => {
 //   res.render("index");

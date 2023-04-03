@@ -5,7 +5,6 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-      
       },
 
       itemName: DataTypes.STRING,
